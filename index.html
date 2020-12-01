@@ -3,17 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Memory Game</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
+    <section class="top-section">
+        <h1>Memory Game</h1>
+        <div class="input-section">
+        <input class="input-value" type="text" placeholder="Enter a theme for your game" autofocus>
+        <input type="submit" value="Set theme" class="submit-btn">
+    </div>
+       
+        <div class="choose-lvl">
+        <h2>Choose level</h2>
+        <div class="lvl-btns">
+            <input type="submit" value="24" class="lvl-btn easy">
+            <input type="submit" value="48" class="lvl-btn hard">
+        </div>
+        </div>
+    </section>
+    <section class="gameboard">
+        <div class="gameboard-container">
+            <div class="gameboard-content">
+                <div class="score-board">
+                <p class="scored-pairs">Pairs: </p>
+                <button class="restart-btn">Restart</button>
+                </div>
+                <div class="card"></div>
+                
+            </div>
+        </div>
+    </section>
+    
+   
 
-<h2>Angelica</h2>
-<h1>new</h1>
-<p>test 3</p>
-
-
-    <script src="/app.js"> </script>
-
+<script src="app.js"></script>
 </body>
 </html>
