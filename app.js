@@ -1,7 +1,4 @@
 
-
-
-
 let bodyHtml = document.querySelector('body')
 
 let starrBtn = document.querySelector('.start-btn')
