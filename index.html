@@ -1,32 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memory Game</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
-</head>
-<body>
-    <section class="top-section">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
         <h1>Memory Game</h1>
+
+      <section class="top-section">
         <div class="input-section">
-            <h2 class="theme">Choose theme</h2>
-        <input class="input-value" type="text" placeholder="Enter a theme for your game" autofocus>
-        <input type="submit" value="Set theme" class="submit-btn">
-    </div>
-       
+          <h2 class="theme">Choose theme</h2>
+          <input
+            class="input-value"
+            type="text"
+            placeholder="Enter a theme for your game"
+            autofocus
+          />
+          <!-- <input type="submit" value="Set theme" class="submit-btn" /> -->
+        </div>
+
         <div class="choose-lvl">
-        <h2>Choose level</h2>
-        <div class="lvl-btns">
-            <input type="submit" value="24" class="lvl-btn easy">
-            <input type="submit" value="48" class="lvl-btn hard">
+          <h2>Choose level</h2>
+          <div class="lvl-btns">
+            <input type="submit" value="24" class="lvl-btn easy" />
+            <input type="submit" value="48" class="lvl-btn hard" />
+          </div>
         </div>
-        </div>
-        <input type="submit" value="Start game" class="start-btn">
-    </section>
+        <input type="submit" value="Start game" class="start-btn" />
+      </section>
+
+      <section class="second-section">
+        <h1>Test test</h1>
+      </section>
+      <section class="third-section"></section>
+    </div>
+
     <!-- 
     <section class="gameboard">
         <div class="gameboard-container">
@@ -41,8 +57,7 @@
         </div>
     </section>
     -->
-   
 
-
-</body>
+    <script src="/app.js"></script>
+  </body>
 </html>
