@@ -96,15 +96,13 @@ addPhotoToHtml();
 
 
 
-let testarray=[1,2]
+ let testarray=[1,2]
     console.log(testarray)
     if(testarray.length<2) {
         testarray.push('3')
     }
-    console.log(testarray)
+    console.log(testarray);
 
 
     
-import {secondSection} from './secondSida.js';
-
-secondSection();
+import {secondSectionFun} from './secondSida'

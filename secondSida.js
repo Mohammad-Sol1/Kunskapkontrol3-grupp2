@@ -2,9 +2,8 @@
 
 
 
-let secondSection= function () {
-    console.log('test')
+export let secondSectionFun = function () {
+  return  console.log('test')
 }
 
 
-export {secondSection}
