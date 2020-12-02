@@ -1,5 +1,5 @@
 
-let bodyHtml = document.querySelector('body')
+let bodyHtml = document.querySelector('body');
 let starrBtn = document.querySelector('.start-btn')
 let topSection = document.querySelector('.top-section')
 let secondSection = document.querySelector('.second-section')
@@ -8,17 +8,16 @@ let secondSection = document.querySelector('.second-section')
 // starrBtn.addEventListener('click', function (Event) {
 //     Event.preventDefault();
 //     topSection.style.display = 'none';
-//     secondSection.style.display = 'flex';
+//     secondSection.style.display = 'flex';s
 
 
 // })
 
 
 
-
 // -------------------------------------
 
-// let photContainer = document.querySelector('.container')
+let photContainer = document.querySelector('.container')
 let searchWord = 'cats';
 let apiKey = '9588ff16cc05d4e98bcb23ab4b518b05'
 let url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${searchWord}&sort=relevance&safe_search=1&per_page=500&format=json&nojsoncallback=1
@@ -103,3 +102,9 @@ let testarray=[1,2]
         testarray.push('3')
     }
     console.log(testarray)
+
+
+    
+import {secondSection} from './secondSida.js';
+
+secondSection();
