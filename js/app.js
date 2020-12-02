@@ -1,26 +1,13 @@
 
 
-import {secondSectionFun} from '/js/secondSidaSpelet.js';
-
-
-secondSectionFun()
-
 
 let bodyHtml = document.querySelector('body');
 let starrBtn = document.querySelector('.start-btn')
 let topSection = document.querySelector('.top-section')
 let secondSection = document.querySelector('.second-section')
+let ArrayforAllImg = [];
 
-
-// starrBtn.addEventListener('click', function (Event) {
-//     Event.preventDefault();
-//     topSection.style.display = 'none';
-//     secondSection.style.display = 'flex';s
-
-
-// })
-
-
+let cardContent = document.querySelector('.card-content')
 
 // -------------------------------------
 
@@ -30,18 +17,12 @@ let apiKey = '9588ff16cc05d4e98bcb23ab4b518b05'
 let url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${searchWord}&sort=relevance&safe_search=1&per_page=500&format=json&nojsoncallback=1
 `
 
-
 let arrayPhoto = [];
 let fetchLink = fetch(url).then((responsiv) => {
     return responsiv.json(url);
 });
 
-
-
-
-
 let fetchData = fetchLink.then(function (data) {
-
     for (let i = 0; i <= 498; i++) {
         let photosData = function () {
             this.PhotoServer = data.photos.photo[i].server;
@@ -50,16 +31,7 @@ let fetchData = fetchLink.then(function (data) {
             this.PhotoSize = 'q';
             this.photoLink = `https://live.staticflickr.com/${this.PhotoServer}/${this.PhotoId}_${this.PhotoSecret}_${this.PhotoSize}.jpg`;
         }
-
         let thePhoto = new photosData().photoLink;
-        // console.log(thePhoto)
-
-        // let PhotoServer = data.photos.photo[i].server;
-        // let PhotoId = data.photos.photo[i].id;
-        // let PhotoSecret = data.photos.photo[i].secret;
-        // let PhotoSize = 'q';
-        // let photoLink = `https://live.staticflickr.com/${PhotoServer}/${PhotoId}_${PhotoSecret}_${PhotoSize}.jpg`;
-
         arrayPhoto.push(thePhoto);
     }
 });
@@ -78,37 +50,72 @@ async function addPhotoToHtml() {
         theImageRa = arrayPhoto[randomNumber];
         if (ramdomImageArray.indexOf(theImageRa) === -1) {
             ramdomImageArray.push(theImageRa);
+            ArrayforAllImg.push(theImageRa);
             photoHtml = document.createElement('img');
             photoHtml.src = theImageRa;
-            photContainer.appendChild(photoHtml);
+            // photContainer.appendChild(photoHtml);
+
         }
     }
-
     while (duplicateForImageArray.length < kortantal) {
         randomNumber = Math.floor(Math.random() * kortantal);
         theImageRa = ramdomImageArray[randomNumber];
         if (duplicateForImageArray.indexOf(theImageRa) === -1) {
             duplicateForImageArray.push(theImageRa);
+            ArrayforAllImg.push(theImageRa);
             photoHtml = document.createElement('img');
             photoHtml.src = theImageRa;
-            photContainer.appendChild(photoHtml);
+            // photContainer.appendChild(photoHtml);
         }
     }
 }
 
 
+async function bildCard() {
+    await addPhotoToHtml()
+    let compareArray = [];
+    for (let i = 0; i <= 23; i++) {
+     
+        let theCard = document.createElement('img');
+        theCard.src = "/img/memorycard.png"
+        cardContent.appendChild(theCard);
+        theCard.addEventListener('click', function () {
+            if (compareArray.length < 24) {
+                theCard.src = ArrayforAllImg[i];
+                compareArray.push(ArrayforAllImg[i])
+                console.log(compareArray)
+            }
 
-addPhotoToHtml();
+            if (compareArray.length == 2) {
+                if (compareArray[0] == !compareArray[1]) {
+                    compareArray = [];
+                    console.log('the Same')
+                }
+
+            }
+
+           
+
+        })
+
+
+    }
 
 
 
 
-//  let testarray=[1,2]
-//     console.log(testarray)
-//     if(testarray.length<2) {
-//         testarray.push('3')
-//     }
-//     console.log(testarray);
+
+}
 
 
-    
+
+bildCard()
+
+
+// starrBtn.addEventListener('click', function (Event) {
+//     Event.preventDefault();
+//     topSection.style.display = 'none';
+//     secondSection.style.display = 'flex';s
+
+// })
+
