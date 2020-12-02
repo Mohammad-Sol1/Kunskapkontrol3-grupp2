@@ -15,7 +15,7 @@ body{
 
 
 .container{
-background-color: #e73cc2;
+/*background-color: #e73cc2;*/
 width: 700px;
 height: 700px;
 margin: 0 auto;
@@ -37,7 +37,7 @@ h1{
     color: white;
     font-size: 70px;
     text-transform: uppercase;
-    margin-top: 95px;
+    margin-top: 25px;
     letter-spacing: 2px;
 }
 h2{
@@ -113,42 +113,109 @@ h2{
 width: 100%;
 height: 100%;
 }
-
-.score-content{
+.score-container{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.score-content{ 
+    height: 40px;
+    width: 80%;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-size: 12px;
+    background-color: white;
+    margin-top: 20px;
+   
+}
+
+.pairs-title{
+    font-size: 20px;
+    color: black;
+    margin-left: 60px;
+    margin-top: 10px;
+    
+}
+.card-container{
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    margin-top: 30px;
+    background-color: blue;
+
+}
+
+
+img {
+    width: 20%;
+    box-shadow: 0 8px 6px -6px black;
+
+}
+.restart-btn{
     margin-top: 10px;
     height: 40px;
-    width: 100%;
+    width: 100px;
     border-radius: 25px;
     border: none;
     outline: none;
     text-transform: uppercase;
+    font-weight: 800;
     font-size: 12px;
-    background-color: white;
+    background-color: var(--red-color);
     color: white;
+    margin-left: 85%;
 }
-.pairs{
-    font-size: 20px;
-    color: black;
-
-}
-.card-content{
+.third-section{
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
-.card-container{
-    display: grid;
-}
-.card {
-    width: 150px;
-    height: 150px;
-    background-color: white;
-    margin: 20px;
-}
-
-svg {
-    
-    width: 12%;
+.overlay {
+    opacity:0.5; 
+    background: #000; 
+    width: 100%;
+    height: 100%; 
+    z-index: 10;
+    top: 0; 
+    left: 0; 
+    position:  fixed; 
+  }
+  .pop-up{
+      width: 60%;
+      height: 60%;
+      background-color: white;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+  }
+  .pop-up h2{
+      color: black;
+      font-size: 50px;
+      margin-top: -40px;
+  }
+  .pop-up p {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 20px;
+  }
+.playagain-btn{
+    margin-top: 30px;
+    margin-left: 100px;
+    height: 40px;
+    width: 130px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 12px;
+    background-color: var(--red-color);
+    color: white;
+   
 }
