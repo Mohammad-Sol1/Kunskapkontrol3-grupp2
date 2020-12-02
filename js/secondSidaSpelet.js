@@ -1,14 +1,7 @@
 
+export { secondSectionFun };
 
 
-
-// export function secondSectionFun () {
-//   return  console.log('test')
-// }
-
-
-export function myFunction() {
-
-    console.log('Hej');
-
-}
+function secondSectionFun() {
+    return console.log('test')
+};
