@@ -7,4 +7,8 @@
 // }
 
 
-export function myFunction() { console.log('Hej'); }
+export function myFunction() {
+
+    console.log('Hej');
+
+}

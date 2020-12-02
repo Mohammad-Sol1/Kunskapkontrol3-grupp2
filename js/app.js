@@ -2,8 +2,7 @@
 
 
 
-    import { myFunction } from 'secondSidaSpelet.js';
-
+import {myFunction} from 'js/secondSidaSpelet.js';
 
 
 
