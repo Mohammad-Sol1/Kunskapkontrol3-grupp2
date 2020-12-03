@@ -75,40 +75,34 @@ async function addPhotoToHtml() {
 async function bildCard() {
     await addPhotoToHtml()
     let compareArray = [];
-    let imgHtmlArray = [];
-    let tempCompare = [];
+    let imgHtmlArray = [];  /* För att samla alla img element i en */
+    let tempCompare = []; /* för att koden kommer ihåg vad hade vi för I värde */
+
+    // ------------------------------------
+
     for (let i = 0; i <= 3; i++) {/*  23*/     /* för att lägga till all kord med PNG img */
-        imgHtmlArray[i] = document.createElement('img');
+        imgHtmlArray[i] = document.createElement('img'); /*  */
         imgHtmlArray[i].src = "/img/memorycard.png"
         cardContent.appendChild(imgHtmlArray[i]);
-        // console.log(i)
-        // console.log(imgHtmlArray)
-
     }
 
-    for (let i = 0; i <= 3; i++){
+    // ------------------------------------
+
+    for (let i = 0; i <= 3; i++) {
         imgHtmlArray[i].addEventListener('click', muchCard)
-        // console.log(i)
-        // console.log(imgHtmlArray)
         function muchCard() {
-            // console.log(i)
             console.log('addEventListener work')
             if (compareArray.length < 2) {                  /*för att byta img bara för 2  */
                 imgHtmlArray[i].src = ArrayforAllImg[i];
-                // console.log(tempCompare)
                 tempCompare.push([i]);   /* 0 */
-
                 if (compareArray.indexOf(ArrayforAllImg[i]) === -1) {
-
                     compareArray.push(ArrayforAllImg[i]);
 
 
                     if (compareArray.length == 2) {
-                        // console.log(tempCompare)
                         console.log('dont Same')
 
                         compareArray = [];
-
                         setTimeout(
                             function () {
                                 imgHtmlArray[tempCompare[0]].src = "/img/memorycard.png"
@@ -118,25 +112,33 @@ async function bildCard() {
                             }, 1000
                         );
 
-                    }/* */
+                    }
                 } else if (compareArray.indexOf(ArrayforAllImg[i]) !== -1) {
+
                     compareArray.push(ArrayforAllImg[i]);
                     console.log('the Same');
-                    console.log(compareArray);
-                    // console.log(tempCompare);
-                    // console.log(imgHtmlArray[tempCompare[0]]);
-                    // console.log(imgHtmlArray[tempCompare[1]]);
-                    imgHtmlArray[tempCompare[1]].removeEventListener('click', muchCard);
+                    removeLestn();
+                    // imgHtmlArray[tempCompare[0]].removeEventListener('click', muchCard);
+                    // imgHtmlArray[tempCompare[1]].removeEventListener('click', muchCard);
+                    // console.log(imgHtmlArray[tempCompare[0]])
+                    // console.log(imgHtmlArray[tempCompare[1]])
+                    // compareArray = [];
+                    // tempCompare = [];
+
+
+
+                }
+                function removeLestn() {
+                    console.log(imgHtmlArray[tempCompare[0]])
+                    console.log(imgHtmlArray[tempCompare[1]])
                     imgHtmlArray[tempCompare[0]].removeEventListener('click', muchCard);
+                    imgHtmlArray[tempCompare[1]].removeEventListener('click', muchCard);
                     compareArray = [];
                     tempCompare = [];
-                    // console.log(compareArray);
-                    // console.log(tempCompare);}
-
-
+                }
             }
-        } }
-
+        }
+       
     }
 
 }
@@ -149,45 +151,5 @@ bildCard()
 
 
 
-                // if (compareArray.length < 2) {
-                //     imgHtmlArray[i].src = ArrayforAllImg[i];
-                //     compareArray.push(ArrayforAllImg[i])
-                //     if (compareArray.length == 2) {
-                //         // console.log(compareArray)
 
-
-
-
-
-
-
-
-                // if (compareArray[0] == compareArray[1]) {
-                //     compareArray = [];
-                //     console.log('the Same')
-                // }
-                // if (compareArray[0] !== compareArray[1]) {
-                //     console.log('dont Same')
-                //     setTimeout(
-                //         function () {
-                //             imgHtmlArray[i].src = "/img/memorycard.png"
-                //             imgHtmlArray[i - 1].src = "/img/memorycard.png"
-
-                //         }, 1000
-                //     );
-                //     compareArray = [];
-
-                // }
-                // }
-
-
-
-
-
-// starrBtn.addEventListener('click', function (Event) {
-//     Event.preventDefault();
-//     topSection.style.display = 'none';
-//     secondSection.style.display = 'flex';s
-
-// })
 
