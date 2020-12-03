@@ -23,7 +23,8 @@ let fetchLink = fetch(url).then((responsiv) => {
 });
 
 let fetchData = fetchLink.then(function (data) {
-    for (let i = 0; i <= 498; i++) {
+
+    for (let i = 0; i <= 4; i++) {/*  498 */
         let photosData = function () {
             this.PhotoServer = data.photos.photo[i].server;
             this.PhotoId = data.photos.photo[i].id;
@@ -43,10 +44,10 @@ async function addPhotoToHtml() {
     let photoHtml, theImageRa, randomNumber;
     let ramdomImageArray = [];
     let duplicateForImageArray = []
-    let kortantal = 12;
+    let kortantal = 2;/* 12 */
     await fetchLink;
-    while (ramdomImageArray.length < 12) {
-        randomNumber = Math.floor(Math.random() * 499);
+    while (ramdomImageArray.length < 2) {/* 12 */
+        randomNumber = Math.floor(Math.random() * 4);/* 499 */
         theImageRa = arrayPhoto[randomNumber];
         if (ramdomImageArray.indexOf(theImageRa) === -1) {
             ramdomImageArray.push(theImageRa);
@@ -74,42 +75,109 @@ async function addPhotoToHtml() {
 async function bildCard() {
     await addPhotoToHtml()
     let compareArray = [];
-    for (let i = 0; i <= 23; i++) {
-     
-        let theCard = document.createElement('img');
-        theCard.src = "/img/memorycard.png"
-        cardContent.appendChild(theCard);
-        theCard.addEventListener('click', function () {
-            if (compareArray.length < 24) {
-                theCard.src = ArrayforAllImg[i];
-                compareArray.push(ArrayforAllImg[i])
-                console.log(compareArray)
-            }
+    let imgHtmlArray = [];
+    let tempCompare = [];
+    for (let i = 0; i <= 3; i++) {/*  23*/
+        imgHtmlArray[i] = document.createElement('img');
+        imgHtmlArray[i].src = "/img/memorycard.png"
+        cardContent.appendChild(imgHtmlArray[i]);
 
-            if (compareArray.length == 2) {
-                if (compareArray[0] == !compareArray[1]) {
+
+        imgHtmlArray[i].addEventListener('click', muchCard)
+
+
+
+        function muchCard() {
+
+            console.log('test addevent')
+            if (compareArray.length < 2) {
+
+                imgHtmlArray[i].src = ArrayforAllImg[i];
+                tempCompare.push([i]);
+
+                if (compareArray.indexOf(ArrayforAllImg[i]) === -1) {
+
+                    compareArray.push(ArrayforAllImg[i])
+
+
+                    if (compareArray.length == 2) {
+                        console.log(tempCompare)
+                        console.log('dont Same')
+
+                        compareArray = [];
+
+                        setTimeout(
+                            function () {
+                                imgHtmlArray[tempCompare[0]].src = "/img/memorycard.png"
+                                imgHtmlArray[tempCompare[1]].src = "/img/memorycard.png"
+                                tempCompare = [];
+
+                            }, 1000
+                        );
+
+                    }/* */
+                } else if (compareArray.indexOf(ArrayforAllImg[i]) !== -1 ) {
+                    console.log('the Same');
+                    console.log(compareArray);
+                    console.log(tempCompare);
+                    console.log(imgHtmlArray[tempCompare[0]]);
+                    console.log( imgHtmlArray[tempCompare[1]]);
+                    imgHtmlArray[tempCompare[0]].removeEventListener('click', muchCard);
+                    imgHtmlArray[tempCompare[1]].removeEventListener('click', muchCard);
                     compareArray = [];
-                    console.log('the Same')
+                    tempCompare = [];
+
                 }
 
+
             }
-
-           
-
-        })
-
+        }
 
     }
-
-
-
-
 
 }
 
 
 
 bildCard()
+
+
+
+
+
+                // if (compareArray.length < 2) {
+                //     imgHtmlArray[i].src = ArrayforAllImg[i];
+                //     compareArray.push(ArrayforAllImg[i])
+                //     if (compareArray.length == 2) {
+                //         // console.log(compareArray)
+
+
+
+
+
+
+
+
+                // if (compareArray[0] == compareArray[1]) {
+                //     compareArray = [];
+                //     console.log('the Same')
+                // }
+                // if (compareArray[0] !== compareArray[1]) {
+                //     console.log('dont Same')
+                //     setTimeout(
+                //         function () {
+                //             imgHtmlArray[i].src = "/img/memorycard.png"
+                //             imgHtmlArray[i - 1].src = "/img/memorycard.png"
+
+                //         }, 1000
+                //     );
+                //     compareArray = [];
+
+                // }
+                // }
+
+
+
 
 
 // starrBtn.addEventListener('click', function (Event) {
