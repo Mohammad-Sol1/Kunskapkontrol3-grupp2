@@ -88,11 +88,11 @@ async function bildCard() {
 
     for (let i = 0; i <= 3; i++){
         imgHtmlArray[i].addEventListener('click', muchCard)
-        console.log(i)
+        // console.log(i)
         // console.log(imgHtmlArray)
         function muchCard() {
             // console.log(i)
-            // console.log('test addevent')
+            console.log('addEventListener work')
             if (compareArray.length < 2) {                  /*för att byta img bara för 2  */
                 imgHtmlArray[i].src = ArrayforAllImg[i];
                 // console.log(tempCompare)
