@@ -107,10 +107,14 @@ async function bildCard() {
 
     /* föt syy skapa addEventListener för varje kort */
     for (let i = 0; i <= 3; i++) {
+
+        console.log(i)
         imgHtmlArray[i].addEventListener('click', muchCard)
         function muchCard() {
             console.log('addEventListener work')
             if (compareArray.length < 2) {                  /* Vi kollar om vi har mindra än två kort som har vi öppnat */
+                console.log(i)
+
                 imgHtmlArray[i].src = ArrayforAllImg[i];                /* Då bytar vi src för img med den bilden vi fick från den array där vi har redan bilderna blandade */
                 tempCompare.push([i]);   /* 0 */                        /* För att hålla koll på vilket värde här (I) */
                 if (compareArray.indexOf(ArrayforAllImg[i]) === -1) {       /* Vi kollar om den url för bilden om vi fått in i compareArray finns redan i detta array eller inte */
@@ -136,6 +140,7 @@ async function bildCard() {
 
                     compareArray.push(ArrayforAllImg[i]);     /*  här pushar vi bilden till compareArray igen  */
                     console.log('the Same');
+                    
                     removeLestn();                      /* Här vi kalar function för att removeEventListener för de img elementer som finns i imgHtmlArray
                      med rätt index som vi kommer hämta från array som heter tempCompare och som spara var ligger i på varje gång vi öppnar någon kort  */
                 }
@@ -148,10 +153,13 @@ async function bildCard() {
                     imgHtmlArray[tempCompare[1]].removeEventListener('click', muchCard);
                     compareArray = [];    /* Här behöver vi tomma array efter vi är klara med den */
                     tempCompare = [];     /* Här behöver vi tomma array efter vi är klara med den */
+                    console.log(i)
 
                 }
             }
         }
+
+
 
     }
 
