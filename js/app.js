@@ -140,7 +140,6 @@ async function bildCard() {
 
                     compareArray.push(ArrayforAllImg[i]);     /*  här pushar vi bilden till compareArray igen  */
                     console.log('the Same');
-                    
                     removeLestn();                      /* Här vi kalar function för att removeEventListener för de img elementer som finns i imgHtmlArray
                      med rätt index som vi kommer hämta från array som heter tempCompare och som spara var ligger i på varje gång vi öppnar någon kort  */
                 }
