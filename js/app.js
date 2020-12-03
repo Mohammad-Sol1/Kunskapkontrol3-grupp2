@@ -77,31 +77,34 @@ async function bildCard() {
     let compareArray = [];
     let imgHtmlArray = [];
     let tempCompare = [];
-    for (let i = 0; i <= 3; i++) {/*  23*/
+    for (let i = 0; i <= 3; i++) {/*  23*/     /* för att lägga till all kord med PNG img */
         imgHtmlArray[i] = document.createElement('img');
         imgHtmlArray[i].src = "/img/memorycard.png"
         cardContent.appendChild(imgHtmlArray[i]);
+        // console.log(i)
+        // console.log(imgHtmlArray)
 
+    }
 
+    for (let i = 0; i <= 3; i++){
         imgHtmlArray[i].addEventListener('click', muchCard)
-
-
-
+        console.log(i)
+        // console.log(imgHtmlArray)
         function muchCard() {
-
-            console.log('test addevent')
-            if (compareArray.length < 2) {
-
+            // console.log(i)
+            // console.log('test addevent')
+            if (compareArray.length < 2) {                  /*för att byta img bara för 2  */
                 imgHtmlArray[i].src = ArrayforAllImg[i];
-                tempCompare.push([i]);
+                // console.log(tempCompare)
+                tempCompare.push([i]);   /* 0 */
 
                 if (compareArray.indexOf(ArrayforAllImg[i]) === -1) {
 
-                    compareArray.push(ArrayforAllImg[i])
+                    compareArray.push(ArrayforAllImg[i]);
 
 
                     if (compareArray.length == 2) {
-                        console.log(tempCompare)
+                        // console.log(tempCompare)
                         console.log('dont Same')
 
                         compareArray = [];
@@ -116,22 +119,23 @@ async function bildCard() {
                         );
 
                     }/* */
-                } else if (compareArray.indexOf(ArrayforAllImg[i]) !== -1 ) {
+                } else if (compareArray.indexOf(ArrayforAllImg[i]) !== -1) {
+                    compareArray.push(ArrayforAllImg[i]);
                     console.log('the Same');
                     console.log(compareArray);
-                    console.log(tempCompare);
-                    console.log(imgHtmlArray[tempCompare[0]]);
-                    console.log( imgHtmlArray[tempCompare[1]]);
-                    imgHtmlArray[tempCompare[0]].removeEventListener('click', muchCard);
+                    // console.log(tempCompare);
+                    // console.log(imgHtmlArray[tempCompare[0]]);
+                    // console.log(imgHtmlArray[tempCompare[1]]);
                     imgHtmlArray[tempCompare[1]].removeEventListener('click', muchCard);
+                    imgHtmlArray[tempCompare[0]].removeEventListener('click', muchCard);
                     compareArray = [];
                     tempCompare = [];
-
-                }
+                    // console.log(compareArray);
+                    // console.log(tempCompare);}
 
 
             }
-        }
+        } }
 
     }
 
