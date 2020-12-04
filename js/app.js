@@ -12,6 +12,7 @@ let photContainer = document.querySelector('.container')
 // -------------------------------------
 
 let ArrayforAllImg = [];      /*  Den här array kommer vara det sista array där finns bilderna blandade redan på ett rätt sätt  */
+let unikIdforImg = [];
 
 // -------------------------------------
 
@@ -92,11 +93,19 @@ async function addPhotoTArray() {
 async function bildCard() {
 
     await addPhotoTArray()
+    await skapaIDFörimg()
+
     comparecartFunctoin()
-    console.log(ArrayforAllImg)
+    // console.log(ArrayforAllImg);
 }
 
 
+function skapaIDFörimg() {
+    console.log(ArrayforAllImg)
+    for (let i = 0; i < ArrayforAllImg.length; i++) {
+        unikIdforImg.push(i + ArrayforAllImg[i])
+    }
+}
 
 // -------------------------------------
 
@@ -105,10 +114,14 @@ let comparecartFunctoin = function () {
     let compareArray = []; /* för att jämfor varje gång länken för de två img som vi öpnnar i spelet */
     let img = [];  /* För att skapa och lägga till class och appendChild */
     let tempCompare = []; /* för att koden kommer ihåg vad hade vi för I nummer när vi öppnade kortet */
+    let tempCompareForUnik = []; /* för att koden kommer ihåg vad hade vi för I nummer när vi öppnade kortet */
     skapaImgElementiArray()
     let imgElement = document.querySelectorAll('.img-element')
     skapaEvenetFörKort()
     // ------------------------------------
+
+
+
     function skapaImgElementiArray() {
         for (let i = 0; i <= 3; i++) {/*  23*/     /* för att skapa alla kort och lägger till dem samma PNG img */
             img = document.createElement('img'); /*  */
@@ -120,6 +133,9 @@ let comparecartFunctoin = function () {
 
 
     }
+
+
+
     // ------------------------------------
 
 
@@ -127,17 +143,21 @@ let comparecartFunctoin = function () {
 
     function skapaEvenetFörKort() {
         for (let i = 0; i <= 3; i++) {
-            let id=[];
-            id.push(i+ArrayforAllImg[i])
-            console.log(id)
-
             imgElement[i].addEventListener('click', matchakort)
-
             function matchakort() {
+                // if (id.indexOf(i+ArrayforAllImg[i] !== -1) { 
                 console.log('work event' + i)
-                console.log(id)
 
-                mindraÄnTvåBilder();
+
+                console.log(tempCompareForUnik)
+                if (tempCompareForUnik.indexOf(unikIdforImg[i]) == -1) {
+                    mindraÄnTvåBilder();
+                    tempCompareForUnik.push(unikIdforImg[i])
+                    console.log(tempCompareForUnik)
+
+                }
+
+
 
                 /* Vi kollar om vi har mindra än två url (kort) i compareArray som är tomt,
                 om de är mindre än två,
@@ -148,6 +168,9 @@ let comparecartFunctoin = function () {
                   annars om det nya url finns redan då betyder det att de två url (kort) är lika .
                   */
                 function mindraÄnTvåBilder() {
+                    // console.log(unikIdforImg)
+
+
                     if (compareArray.length < 2) {
                         if (compareArray.indexOf(ArrayforAllImg[i]) === -1) {
                             imgElement[i].src = ArrayforAllImg[i];
@@ -168,19 +191,22 @@ let comparecartFunctoin = function () {
                 function tvåOlikaBilder() {
                     /* Vi kollar om  compareArray har två olika kort med olika url så vänder vi kort igen om 1000s */
                     if (compareArray.length == 2) {
-                        console.log(tempCompare[0][0])
-                        console.log(tempCompare[1][0])
+                        // console.log(tempCompare[0][0])
+                        // console.log(tempCompare[1][0])
                         console.log('dont Same')
                         setTimeout(
                             function () {
-                        imgElement[tempCompare[0]].src = "/img/memorycard.png"
-                        imgElement[tempCompare[1]].src = "/img/memorycard.png"
-                        tempCompare = [];
-                        compareArray = [];
-                     
-                           
-                               /* Här behöver vi tomma array efter vi är klara med den */
-                                 /* Här behöver vi tomma array efter vi är klara med den */
+                                imgElement[tempCompare[0]].src = "/img/memorycard.png"
+                                imgElement[tempCompare[1]].src = "/img/memorycard.png"
+                                tempCompare = [];
+                                compareArray = [];
+                                console.log(tempCompareForUnik)
+                                tempCompareForUnik = []
+                                console.log(tempCompareForUnik)
+
+
+                                /* Här behöver vi tomma array efter vi är klara med den */
+                                /* Här behöver vi tomma array efter vi är klara med den */
                             }, 1000
                         );
                     }
