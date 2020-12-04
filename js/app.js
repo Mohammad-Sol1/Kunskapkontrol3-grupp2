@@ -92,146 +92,136 @@ async function addPhotoTArray() {
 async function bildCard() {
 
     await addPhotoTArray()
-    // comparecartFunctoin()
+    comparecartFunctoin()
     console.log(ArrayforAllImg)
 }
 
+// imgHtmlArray[tempCompare[0]].removeEventListener('click', muchCard);
+
+
+// -------------------------------------
+
+let comparecartFunctoin = function () {
+
+    let compareArray = []; /* för att jämfor varje gång länken för de två img som vi öpnnar i spelet */
+    let img = [];  /* För att skapa och lägga till class och appendChild */
+    let tempCompare = []; /* för att koden kommer ihåg vad hade vi för I nummer när vi öppnade kortet */
+    skapaImgElementiArray()
+    let imgElement = document.querySelectorAll('.img-element')
+    skapaEvenetFörKort()
+    // ------------------------------------
+    function skapaImgElementiArray() {
+        for (let i = 0; i <= 3; i++) {/*  23*/     /* för att skapa alla kort och lägger till dem samma PNG img */
+            img = document.createElement('img'); /*  */
+            img.src = "/img/memorycard.png"
+            img.classList.add('img-element');
+            cardContent.appendChild(img);
+
+        }
+
+
+    }
+    // ------------------------------------
+
+
+    /* för att skapa addEventListener för varje kort */
+
+    function skapaEvenetFörKort() {
+        for (let i = 0; i <= 3; i++) {
+            imgElement[i].addEventListener('click', matchakort)
+            function matchakort() {
+                console.log('addEventListener work')
+                mindraÄnTvåBilder();
+
+                /* Vi kollar om vi har mindra än två url (kort) i compareArray som är tomt,
+                om de är mindre än två,
+                då kollar vi om den url som vi fick först från ArrayforAllImg-(där har vi redan bilderna blandade)- inte finns redan i compareArray,
+                 om det inte finns då lägger till vi den till compareArray, 
+                  och vi göra det process igen för nästa kort ,
+                  då om det nya url inte finns i compareArray så det betyder att de är olika kort ,
+                  annars om det nya url finns redan då betyder det att de två url (kort) är lika .
+                  */
+                function mindraÄnTvåBilder() {
+                    if (compareArray.length < 2) {
+                        if (compareArray.indexOf(ArrayforAllImg[i]) === -1) {
+                            imgElement[i].src = ArrayforAllImg[i];
+                            tempCompare.push([i]);     /* För att hålla koll på vilket värde här (I) */
+                            compareArray.push(ArrayforAllImg[i]); /* */
+                            tvåOlikaBilder();
+                        } else {
+                            tvålikaBilder()
+                        }
+                    }
+                }
+
+                function tvåOlikaBilder() {
+                    /* Vi kollar om  compareArray har två olika kort med olika url så vänder vi kort igen om 1000s */
+                    if (compareArray.length == 2) {
+                        console.log('dont Same')
+                        setTimeout(
+                            function () {
+                                imgElement[tempCompare[0]].src = "/img/memorycard.png"
+                                imgElement[tempCompare[1]].src = "/img/memorycard.png"
+                                tempCompare = []; /* Här behöver vi tomma array efter vi är klara med den */
+                                compareArray = [];  /* Här behöver vi tomma array efter vi är klara med den */
+                            }, 1000
+                        );
+                    }
+                }
+
+
+
+                function tvålikaBilder() {
+                    /* Här vet vi redam från förra function att det nya url finns readan i compareArray,
+                          och det betyder att det två url är lika. */
+                    tempCompare.push([i]);
+                    compareArray.push(ArrayforAllImg[i]);
+                    console.log('The same')
+                    imgElement[i].src = ArrayforAllImg[i];
+                    removeLestn();
+                    function removeLestn() {
+
+                        setTimeout(
+                            function () {
+                                // imgElement[tempCompare[0]].remove();
+
+                                imgElement[tempCompare[1]].remove();
+                                imgElement[tempCompare[0]].remove();
+                                console.log(imgElement[tempCompare[0]])
+                                console.log(imgElement[tempCompare[1]])
+                                for (let i = 0; i < 2; i++) {
+                                    let imgFixat = document.createElement('img'); /*  */
+                                    imgFixat.src = imgElement[tempCompare[i]].src
+                                    imgFixat.classList.add('img-element-fixat');
+                                    winCardContent.appendChild(imgFixat);
+
+                                }
+
+                                // imgElement[tempCompare[1]].removeEventListener('click', matchakort);
+                                console.log(imgElement[tempCompare[0]])
+                                console.log(imgElement[tempCompare[1]])
+                                console.log(tempCompare)
+                                // imgElement[tempCompare[0]].remove();
+                                // imgElement[tempCompare[1]].remove();
+                                compareArray = [];    /* Här behöver vi tomma array efter vi är klara med den */
+                                tempCompare = [];     /* Här behöver vi tomma array efter vi är klara med den */
+
+
+                            }, 1000
+                        );
+                    }
+                }
+
+
+
+            }
+        }
+
+    }
+}
 
 
 bildCard()
-// -------------------------------------
-
-// let comparecartFunctoin = function () {
-
-//     let compareArray = []; /* för att jämfor varje gång länken för de två img som vi öpnnar i spelet */
-//     let img = [];  /* För att skapa och lägga till class och appendChild */
-//     let tempCompare = []; /* för att koden kommer ihåg vad hade vi för I nummer när vi öppnade kortet */
-//     skapaImgElementiArray()
-//     let imgElement = document.querySelectorAll('.img-element')
-//     skapaEvenetFörKort()
-//     // ------------------------------------
-//     function skapaImgElementiArray() {
-//         for (let i = 0; i <= 3; i++) {/*  23*/     /* för att skapa alla kort och lägger till dem samma PNG img */
-//             img = document.createElement('img'); /*  */
-//             img.src = "/img/memorycard.png"
-//             img.classList.add('img-element');
-//             cardContent.appendChild(img);
-
-//         }
-
-
-//     }
-//     // ------------------------------------
-
-
-//     /* för att skapa addEventListener för varje kort */
-
-//     function skapaEvenetFörKort() {
-//         for (let i = 0; i <= 3; i++) {
-//             imgElement[i].addEventListener('click', matchakort)
-
-//             function matchakort() {
-//                 console.log('addEventListener work')
-
-//                 mindraÄnTvåBilder();
-
-//                 /* Vi kollar om vi har mindra än två url (kort) i compareArray som är tomt,
-//                 om de är mindre än två,
-//                 då kollar vi om den url som vi fick först från ArrayforAllImg-(där har vi redan bilderna blandade)- inte finns redan i compareArray,
-//                  om det inte finns då lägger till vi den till compareArray, 
-//                   och vi göra det process igen för nästa kort ,
-//                   då om det nya url inte finns i compareArray så det betyder att de är olika kort ,
-//                   annars om det nya url finns redan då betyder det att de två url (kort) är lika .
-//                   */
-//                 function mindraÄnTvåBilder() {
-//                     if (compareArray.length < 2) {
-//                         if (compareArray.indexOf(ArrayforAllImg[i]) === -1) {
-//                             imgElement[i].src = ArrayforAllImg[i];
-//                             tempCompare.push([i]);     /* För att hålla koll på vilket värde här (I) */
-//                             compareArray.push(ArrayforAllImg[i]); /* */
-//                             tvåOlikaBilder();
-//                         } else {
-//                             tvålikaBilder()
-//                         }
-//                     }
-//                 }
-
-//                 function tvåOlikaBilder() {
-//                     /* Vi kollar om  compareArray har två olika kort med olika url så vänder vi kort igen om 1000s */
-//                     if (compareArray.length == 2) {
-//                         console.log('dont Same')
-//                         setTimeout(
-//                             function () {
-//                                 imgElement[tempCompare[0]].src = "/img/memorycard.png"
-//                                 imgElement[tempCompare[1]].src = "/img/memorycard.png"
-//                                 tempCompare = []; /* Här behöver vi tomma array efter vi är klara med den */
-//                                 compareArray = [];  /* Här behöver vi tomma array efter vi är klara med den */
-//                             }, 1000
-//                         );
-//                     }
-//                 }
-
-
-
-//                 function tvålikaBilder() {
-//                     /* Här vet vi redam från förra function att det nya url finns readan i compareArray,
-//                           och det betyder att det två url är lika. */
-//                     tempCompare.push([i]);
-//                     compareArray.push(ArrayforAllImg[i]);
-//                     console.log('The same')
-//                     imgElement[i].src = ArrayforAllImg[i];
-//                     removeLestn();
-//                     function removeLestn() {
-
-//                         setTimeout(
-//                             function () {
-//                                 // imgElement[tempCompare[0]].remove();
-
-//                                 imgElement[tempCompare[1]].remove();
-//                                 imgElement[tempCompare[0]].remove();
-//                                 console.log(imgElement[tempCompare[0]])
-//                                 console.log(imgElement[tempCompare[1]])
-//                                 for (let i = 0; i < 2; i++) {
-//                                     let imgFixat = document.createElement('img'); /*  */
-//                                     imgFixat.src = imgElement[tempCompare[i]].src
-//                                     imgFixat.classList.add('img-element-fixat');
-//                                     winCardContent.appendChild(imgFixat);
-
-//                                 }
-
-//                                 // imgElement[tempCompare[1]].removeEventListener('click', matchakort);
-//                                 console.log(imgElement[tempCompare[0]])
-//                                 console.log(imgElement[tempCompare[1]])
-//                                 console.log(tempCompare)
-//                                 // imgElement[tempCompare[0]].remove();
-//                                 // imgElement[tempCompare[1]].remove();
-//                                 compareArray = [];    /* Här behöver vi tomma array efter vi är klara med den */
-//                                 tempCompare = [];     /* Här behöver vi tomma array efter vi är klara med den */
-
-
-
-//                             }, 1000
-//                         );
-//                     }
-//                 }
-
-
-
-//             }
-
-
-
-//         }
-
-
-
-//     }
-
-
-
-
-
-// }
 
 
 
@@ -239,16 +229,3 @@ bildCard()
 
 
 
-
-
-                //               
-                //             
-
-                //                                     /* Här vi kalar function för att removeEventListener för de img elementer som finns i imgHtmlArray
-                //                      med rätt index som vi kommer hämta från array som heter tempCompare och som spara var ligger i på varje gång vi öppnar någon kort  */
-                //             }
-
-
-
-
-                // }
