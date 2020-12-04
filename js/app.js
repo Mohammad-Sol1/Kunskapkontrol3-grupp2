@@ -96,7 +96,6 @@ async function bildCard() {
     console.log(ArrayforAllImg)
 }
 
-// imgHtmlArray[tempCompare[0]].removeEventListener('click', muchCard);
 
 
 // -------------------------------------
@@ -128,9 +127,16 @@ let comparecartFunctoin = function () {
 
     function skapaEvenetFörKort() {
         for (let i = 0; i <= 3; i++) {
+            let id=[];
+            id.push(i+ArrayforAllImg[i])
+            console.log(id)
+
             imgElement[i].addEventListener('click', matchakort)
+
             function matchakort() {
-                console.log('addEventListener work')
+                console.log('work event' + i)
+                console.log(id)
+
                 mindraÄnTvåBilder();
 
                 /* Vi kollar om vi har mindra än två url (kort) i compareArray som är tomt,
@@ -146,8 +152,13 @@ let comparecartFunctoin = function () {
                         if (compareArray.indexOf(ArrayforAllImg[i]) === -1) {
                             imgElement[i].src = ArrayforAllImg[i];
                             tempCompare.push([i]);     /* För att hålla koll på vilket värde här (I) */
+                            // console.log(tempCompare[0][0])
+                            // console.log(tempCompare[1][0])
+
                             compareArray.push(ArrayforAllImg[i]); /* */
+                            // imgElement[tempCompare[0][0]].removeEventListener('click', matchakort)
                             tvåOlikaBilder();
+
                         } else {
                             tvålikaBilder()
                         }
@@ -157,13 +168,19 @@ let comparecartFunctoin = function () {
                 function tvåOlikaBilder() {
                     /* Vi kollar om  compareArray har två olika kort med olika url så vänder vi kort igen om 1000s */
                     if (compareArray.length == 2) {
+                        console.log(tempCompare[0][0])
+                        console.log(tempCompare[1][0])
                         console.log('dont Same')
                         setTimeout(
                             function () {
-                                imgElement[tempCompare[0]].src = "/img/memorycard.png"
-                                imgElement[tempCompare[1]].src = "/img/memorycard.png"
-                                tempCompare = []; /* Här behöver vi tomma array efter vi är klara med den */
-                                compareArray = [];  /* Här behöver vi tomma array efter vi är klara med den */
+                        imgElement[tempCompare[0]].src = "/img/memorycard.png"
+                        imgElement[tempCompare[1]].src = "/img/memorycard.png"
+                        tempCompare = [];
+                        compareArray = [];
+                     
+                           
+                               /* Här behöver vi tomma array efter vi är klara med den */
+                                 /* Här behöver vi tomma array efter vi är klara med den */
                             }, 1000
                         );
                     }
@@ -180,54 +197,29 @@ let comparecartFunctoin = function () {
                     imgElement[i].src = ArrayforAllImg[i];
                     removeLestn();
                     function removeLestn() {
-
-                        console.log(imgElement[tempCompare[0][0]])
-                        console.log(imgElement[tempCompare[1][0]])
-
-                        imgElement[tempCompare[0][0]].removeEventListener('click', matchakort);
-                        // imgElement[tempCompare[1][0]].removeEventListener('click', matchakort);
-
-                        // console.log(tempCompare)
-                        // console.log(imgElement)
-
-                      
-
                         setTimeout(
                             function () {
-                                // imgElement[tempCompare[0]].remove();
-
-                                // imgElement[tempCompare[1]].remove();
-                                // imgElement[tempCompare[0]].remove();
-                                // console.log(imgElement[tempCompare[0]])
-                                // console.log(imgElement[tempCompare[1]])
-                                // for (let i = 0; i < 2; i++) {
-                                //     let imgFixat = document.createElement('img'); /*  */
-                                //     imgFixat.src = imgElement[tempCompare[i]].src
-                                //     imgFixat.classList.add('img-element-fixat');
-                                //     winCardContent.appendChild(imgFixat);
-
-                                // }
-
-                                // imgElement[tempCompare[1]].removeEventListener('click', matchakort);
-                                // console.log(imgElement[tempCompare[0]])
-                                // console.log(imgElement[tempCompare[1]])
-                                // console.log(tempCompare)
-                                // // imgElement[tempCompare[0]].remove();
-                                // // imgElement[tempCompare[1]].remove();
-                                // compareArray = [];    /* Här behöver vi tomma array efter vi är klara med den */
-                                // tempCompare = [];     /* Här behöver vi tomma array efter vi är klara med den */
-
-
+                                let imgFixat1;
+                                let imgFixat2;
+                                imgFixat1 = document.createElement('img');
+                                imgFixat2 = document.createElement('img');
+                                imgFixat1.src = imgElement[tempCompare[0]].src
+                                imgFixat2.src = imgElement[tempCompare[1]].src
+                                imgFixat1.classList.add('img-element-fixat');
+                                imgFixat2.classList.add('img-element-fixat');
+                                cardContent.insertBefore(imgFixat1, cardContent.childNodes[(tempCompare[0][0]) + 1]);
+                                cardContent.insertBefore(imgFixat2, cardContent.childNodes[(tempCompare[1][0]) + 1]);
+                                imgElement[tempCompare[0][0]].remove();
+                                imgElement[tempCompare[1][0]].remove();
+                                compareArray = [];    /* Här behöver vi tomma array efter vi är klara med den */
+                                tempCompare = [];     /* Här behöver vi tomma array efter vi är klara med den */
                             }, 1000
                         );
                     }
                 }
 
-
-
             }
         }
-
     }
 }
 
