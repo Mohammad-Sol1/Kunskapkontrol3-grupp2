@@ -181,30 +181,41 @@ let comparecartFunctoin = function () {
                     removeLestn();
                     function removeLestn() {
 
+                        console.log(imgElement[tempCompare[0][0]])
+                        console.log(imgElement[tempCompare[1][0]])
+
+                        imgElement[tempCompare[0][0]].removeEventListener('click', matchakort);
+                        // imgElement[tempCompare[1][0]].removeEventListener('click', matchakort);
+
+                        // console.log(tempCompare)
+                        // console.log(imgElement)
+
+                      
+
                         setTimeout(
                             function () {
                                 // imgElement[tempCompare[0]].remove();
 
-                                imgElement[tempCompare[1]].remove();
-                                imgElement[tempCompare[0]].remove();
-                                console.log(imgElement[tempCompare[0]])
-                                console.log(imgElement[tempCompare[1]])
-                                for (let i = 0; i < 2; i++) {
-                                    let imgFixat = document.createElement('img'); /*  */
-                                    imgFixat.src = imgElement[tempCompare[i]].src
-                                    imgFixat.classList.add('img-element-fixat');
-                                    winCardContent.appendChild(imgFixat);
+                                // imgElement[tempCompare[1]].remove();
+                                // imgElement[tempCompare[0]].remove();
+                                // console.log(imgElement[tempCompare[0]])
+                                // console.log(imgElement[tempCompare[1]])
+                                // for (let i = 0; i < 2; i++) {
+                                //     let imgFixat = document.createElement('img'); /*  */
+                                //     imgFixat.src = imgElement[tempCompare[i]].src
+                                //     imgFixat.classList.add('img-element-fixat');
+                                //     winCardContent.appendChild(imgFixat);
 
-                                }
+                                // }
 
                                 // imgElement[tempCompare[1]].removeEventListener('click', matchakort);
-                                console.log(imgElement[tempCompare[0]])
-                                console.log(imgElement[tempCompare[1]])
-                                console.log(tempCompare)
-                                // imgElement[tempCompare[0]].remove();
-                                // imgElement[tempCompare[1]].remove();
-                                compareArray = [];    /* Här behöver vi tomma array efter vi är klara med den */
-                                tempCompare = [];     /* Här behöver vi tomma array efter vi är klara med den */
+                                // console.log(imgElement[tempCompare[0]])
+                                // console.log(imgElement[tempCompare[1]])
+                                // console.log(tempCompare)
+                                // // imgElement[tempCompare[0]].remove();
+                                // // imgElement[tempCompare[1]].remove();
+                                // compareArray = [];    /* Här behöver vi tomma array efter vi är klara med den */
+                                // tempCompare = [];     /* Här behöver vi tomma array efter vi är klara med den */
 
 
                             }, 1000
