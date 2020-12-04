@@ -34,7 +34,7 @@ let fetchLink = fetch(url).then((responsiv) => {
 
 let fetchData = fetchLink.then(function (data) {
 
-    for (let i = 0; i <= 4; i++) {/*  498 */
+    for (let i = 0; i <= 498; i++) {/*  498 - 8yes*/ 
         let photosData = function () {
             this.PhotoServer = data.photos.photo[i].server;
             this.PhotoId = data.photos.photo[i].id;
@@ -55,10 +55,10 @@ async function addPhotoTArray() {
     let photoHtml, theImageRa, randomNumber;
     let ramdomImageArray = [];
     let duplicateForImageArray = []
-    let kortantal = 2;/* 12 */
+    let kortantal = 12;/* 12 -4yes*/
     await fetchLink;
-    while (ramdomImageArray.length < 2) {/* 12 */
-        randomNumber = Math.floor(Math.random() * 4);/* 499 */
+    while (ramdomImageArray.length < 12) {/* 12 -4yes */
+        randomNumber = Math.floor(Math.random() * 499);/* 499 - 8 yes*/
         theImageRa = arrayPhoto[randomNumber];
         if (ramdomImageArray.indexOf(theImageRa) === -1) {
             ramdomImageArray.push(theImageRa);
@@ -123,7 +123,7 @@ let comparecartFunctoin = function () {
 
 
     function skapaImgElementiArray() {
-        for (let i = 0; i <= 3; i++) {/*  23*/     /* för att skapa alla kort och lägger till dem samma PNG img */
+        for (let i = 0; i <= 23; i++) {/*  23 - 7 yes*/     /* för att skapa alla kort och lägger till dem samma PNG img */
             img = document.createElement('img'); /*  */
             img.src = "/img/memorycard.png"
             img.classList.add('img-element');
@@ -142,7 +142,7 @@ let comparecartFunctoin = function () {
     /* för att skapa addEventListener för varje kort */
 
     function skapaEvenetFörKort() {
-        for (let i = 0; i <= 3; i++) {
+        for (let i = 0; i <= 23; i++) {   /* 7 yes */
             imgElement[i].addEventListener('click', matchakort)
             function matchakort() {
                 // if (id.indexOf(i+ArrayforAllImg[i] !== -1) { 
@@ -207,7 +207,7 @@ let comparecartFunctoin = function () {
 
                                 /* Här behöver vi tomma array efter vi är klara med den */
                                 /* Här behöver vi tomma array efter vi är klara med den */
-                            }, 1000
+                            }, 2000
                         );
                     }
                 }
@@ -221,6 +221,8 @@ let comparecartFunctoin = function () {
                     compareArray.push(ArrayforAllImg[i]);
                     console.log('The same')
                     imgElement[i].src = ArrayforAllImg[i];
+                    // tempCompareForUnik = []
+                 
                     removeLestn();
                     function removeLestn() {
                         setTimeout(
@@ -238,7 +240,8 @@ let comparecartFunctoin = function () {
                                 imgElement[tempCompare[0][0]].remove();
                                 imgElement[tempCompare[1][0]].remove();
                                 compareArray = [];    /* Här behöver vi tomma array efter vi är klara med den */
-                                tempCompare = [];     /* Här behöver vi tomma array efter vi är klara med den */
+                                tempCompare = []; 
+                            /* Här behöver vi tomma array efter vi är klara med den */
                             }, 1000
                         );
                     }
