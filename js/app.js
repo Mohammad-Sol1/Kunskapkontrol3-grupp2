@@ -193,10 +193,14 @@ let comparecartFunctoin = function () {
                         // console.log(tempCompare[0][0])
                         // console.log(tempCompare[1][0])
                         console.log('dont Same')
+                        //Om bilderna inte matchar -> byta bakgrundsfärg till röd 
+                        let background=document.querySelector('body');
+                        background.style.backgroundColor = "red";
                         setTimeout(
                             function () {
                                 imgElement[tempCompare[0]].src = "/img/memorycard.png"
                                 imgElement[tempCompare[1]].src = "/img/memorycard.png"
+                                background.style.backgroundColor = '#1ABC9C'
                                 tempCompare = [];
                                 compareArray = [];
                                 // console.log(tempCompareForUnik)
