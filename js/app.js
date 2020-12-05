@@ -34,7 +34,7 @@ let fetchLink = fetch(url).then((responsiv) => {
 
 let fetchData = fetchLink.then(function (data) {
 
-    for (let i = 0; i <= 498; i++) {/*  498 - 8yes*/ 
+    for (let i = 0; i <= 498; i++) {/*  498 - 8 yes*/
         let photosData = function () {
             this.PhotoServer = data.photos.photo[i].server;
             this.PhotoId = data.photos.photo[i].id;
@@ -53,20 +53,19 @@ let fetchData = fetchLink.then(function (data) {
 // -------------------------------------
 async function addPhotoTArray() {
     let photoHtml, theImageRa, randomNumber;
-    let ramdomImageArray = [];
+    let ramdomImageArray = []; /* Här ska vi samla 12 eller 24 unika bilder varja gång från data */
     let duplicateForImageArray = []
     let kortantal = 12;/* 12 -4yes*/
     await fetchLink;
     while (ramdomImageArray.length < 12) {/* 12 -4yes */
         randomNumber = Math.floor(Math.random() * 499);/* 499 - 8 yes*/
-        theImageRa = arrayPhoto[randomNumber];
+        theImageRa = arrayPhoto[randomNumber];  /* Här hämtar vi en random bild av arrayPhoto som har 500 bilder */
         if (ramdomImageArray.indexOf(theImageRa) === -1) {
             ramdomImageArray.push(theImageRa);
             ArrayforAllImg.push(theImageRa);
             photoHtml = document.createElement('img');
             photoHtml.src = theImageRa;
             // photContainer.appendChild(photoHtml);
-
         }
     }
     while (duplicateForImageArray.length < kortantal) {
@@ -101,7 +100,7 @@ async function bildCard() {
 
 
 function skapaIDFörimg() {
-    console.log(ArrayforAllImg)
+    // console.log(ArrayforAllImg)
     for (let i = 0; i < ArrayforAllImg.length; i++) {
         unikIdforImg.push(i + ArrayforAllImg[i])
     }
@@ -146,14 +145,14 @@ let comparecartFunctoin = function () {
             imgElement[i].addEventListener('click', matchakort)
             function matchakort() {
                 // if (id.indexOf(i+ArrayforAllImg[i] !== -1) { 
-                console.log('work event' + i)
+                // console.log('work event' + i)
 
 
-                console.log(tempCompareForUnik)
+                // console.log(tempCompareForUnik)
                 if (tempCompareForUnik.indexOf(unikIdforImg[i]) == -1) {
                     mindraÄnTvåBilder();
                     tempCompareForUnik.push(unikIdforImg[i])
-                    console.log(tempCompareForUnik)
+                    // console.log(tempCompareForUnik)
 
                 }
 
@@ -200,9 +199,9 @@ let comparecartFunctoin = function () {
                                 imgElement[tempCompare[1]].src = "/img/memorycard.png"
                                 tempCompare = [];
                                 compareArray = [];
-                                console.log(tempCompareForUnik)
+                                // console.log(tempCompareForUnik)
                                 tempCompareForUnik = []
-                                console.log(tempCompareForUnik)
+                                // console.log(tempCompareForUnik)
 
 
                                 /* Här behöver vi tomma array efter vi är klara med den */
@@ -222,8 +221,9 @@ let comparecartFunctoin = function () {
                     console.log('The same')
                     imgElement[i].src = ArrayforAllImg[i];
                     // tempCompareForUnik = []
-                 
+
                     removeLestn();
+
                     function removeLestn() {
                         setTimeout(
                             function () {
@@ -240,8 +240,8 @@ let comparecartFunctoin = function () {
                                 imgElement[tempCompare[0][0]].remove();
                                 imgElement[tempCompare[1][0]].remove();
                                 compareArray = [];    /* Här behöver vi tomma array efter vi är klara med den */
-                                tempCompare = []; 
-                            /* Här behöver vi tomma array efter vi är klara med den */
+                                tempCompare = [];
+                                /* Här behöver vi tomma array efter vi är klara med den */
                             }, 1000
                         );
                     }
