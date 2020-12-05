@@ -147,11 +147,36 @@ bildCard()
 
 
 
+<<<<<<< Updated upstream
                 // if (compareArray.length < 2) {
                 //     imgHtmlArray[i].src = ArrayforAllImg[i];
                 //     compareArray.push(ArrayforAllImg[i])
                 //     if (compareArray.length == 2) {
                 //         // console.log(compareArray)
+=======
+                function tvåOlikaBilder() {
+                    /* Vi kollar om  compareArray har två olika kort med olika url så vänder vi kort igen om 1000s */
+                    if (compareArray.length == 2) {
+                        // console.log(tempCompare[0][0])
+                        // console.log(tempCompare[1][0])
+                       
+                        // Ändra backgrund vid no match 
+                        let background=document.querySelector('body');
+                        background.style.backgroundColor = "red";
+                                
+                        console.log('dont Same')
+                        setTimeout(
+                            function () {
+                                imgElement[tempCompare[0]].src = "/img/memorycard.png"
+                                imgElement[tempCompare[1]].src = "/img/memorycard.png"
+                                //Ändra tillbaka till grön
+                                background.style.backgroundColor = '#1ABC9C'
+                                tempCompare = [];
+                                compareArray = [];
+                                // console.log(tempCompareForUnik)
+                                tempCompareForUnik = []
+                                // console.log(tempCompareForUnik)
+>>>>>>> Stashed changes
 
 
 
