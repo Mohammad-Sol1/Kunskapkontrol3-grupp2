@@ -1,5 +1,5 @@
 
-
+let score=0; 
 
 let bodyHtml = document.querySelector('body');
 let starrBtn = document.querySelector('.start-btn')
@@ -225,6 +225,9 @@ let comparecartFunctoin = function () {
                     console.log('The same')
                     imgElement[i].src = ArrayforAllImg[i];
                     // tempCompareForUnik = []
+AddScore();
+
+
 
                     removeLestn();
 
@@ -246,7 +249,7 @@ let comparecartFunctoin = function () {
                                 compareArray = [];    /* Här behöver vi tomma array efter vi är klara med den */
                                 tempCompare = [];
                                 /* Här behöver vi tomma array efter vi är klara med den */
-                            }, 1000
+                            }, 500
                         );
                     }
                 }
@@ -255,6 +258,25 @@ let comparecartFunctoin = function () {
         }
     }
 }
+
+
+function AddScore(){ 
+    score++; 
+   console.log(score); 
+   let ScoreBord= document.querySelector('.pairs-title'); 
+  
+  ScoreBord.textContent= 'Score : '+ score; 
+      
+  }
+                               
+   let RestartGame= document.querySelector('.restart-btn'); 
+   RestartGame.addEventListener('click' , function(){
+       console.log(RestartGame); 
+       if(score ===12){
+           alert(`Game Over: ${score}`); 
+       }
+
+   }); 
 
 
 bildCard()
