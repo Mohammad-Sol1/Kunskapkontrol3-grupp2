@@ -246,14 +246,13 @@ let comparecartFunctoin = function () {
                         );
                     }
                 }
-
             }
         }
     }
 }
 
 
-bildCard()
+// bildCard()
 
 
 
