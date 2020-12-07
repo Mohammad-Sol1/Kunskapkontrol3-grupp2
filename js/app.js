@@ -9,6 +9,10 @@ let cardContent = document.querySelector('.card-content')
 let winCardContent = document.querySelector('.win-card-content')
 let photContainer = document.querySelector('.container')
 
+let popUp = document.querySelector('.third-section')
+let overlayImg = document.querySelector('.img-element');
+
+
 // -------------------------------------
 
 let ArrayforAllImg = [];      /*  Den här array kommer vara det sista array där finns bilderna blandade redan på ett rätt sätt  */
@@ -226,6 +230,8 @@ let comparecartFunctoin = function () {
                     imgElement[i].src = ArrayforAllImg[i];
                     // tempCompareForUnik = []
 AddScore();
+allMatched();
+
 
 
 
@@ -268,7 +274,7 @@ function AddScore(){
   ScoreBord.textContent= 'Score : '+ score; 
       
   }
-                               
+    /*                           
    let RestartGame= document.querySelector('.restart-btn'); 
    RestartGame.addEventListener('click' , function(){
        console.log(RestartGame); 
@@ -276,10 +282,23 @@ function AddScore(){
            alert(`Game Over: ${score}`); 
        }
 
-   }); 
+   }); */
 
+function allMatched(){
+if (score === ArrayforAllImg.length/2){
+    secondSection.style.visibility = 'hidden';
+    popUp.style.visibility = 'visible';
+    console.log(CompareArray);
+}
+}
+// Restart-button on gameboard - refresh the page so the game starts over 
+    let resetBtn = document.querySelector('.restart-btn'); 
+    resetBtn.addEventListener('click', function(){
+    location.reload();
+    });
 
-bildCard()
+      
+    bildCard();
 
 
 
