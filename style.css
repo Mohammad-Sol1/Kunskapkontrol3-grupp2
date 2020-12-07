@@ -114,7 +114,7 @@ h2{
 .second-section {
 width: 100%;
 height: 100%;
-/* display: none; */
+display: none;
 }
 .score-container{
     display: flex;
@@ -151,7 +151,7 @@ height: 100%;
 
 .card-content {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(8, 1fr);
     gap: 4px;
     /* justify-content: center; */
     /* align-items: center; */
@@ -237,4 +237,10 @@ height: 100%;
 .first-section-form {
 
     text-align:  center;
+}
+
+.warning-message{
+    display: none;
+    padding-top: 20px;
+    color:red;
 }
