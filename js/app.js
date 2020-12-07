@@ -10,6 +10,9 @@ let hardGame = document.getElementById('48K');
 let subjectValue = document.querySelector('.subject-value');
 let starrBtn = document.querySelector('.start-btn')
 let warningMessage = document.querySelector('.warning-message')
+let popUp = document.querySelector('.third-section')
+let playAgain = document.querySelector('.playagain-btn');
+
 let Gamesubject, GameLevel;
 
 
@@ -19,10 +22,12 @@ let choseLevelAndSubject = new Promise(function (resolve) {
         Gamesubject = (subjectValue.value).trim();
         if (Gamesubject.length && (easyGame.checked || hardGame.checked)) {
             if (easyGame.checked) {
-                GameLevel = easyGame.value;
+                GameLevel = easyGame.value; /* Original value  : easyGame.value */ 
+                /* Change valu här om du vill ha mindre kort for easy */
             }
             if (hardGame.checked) {
-                GameLevel = hardGame.value;
+                    GameLevel = hardGame.value;  /* Original value  : hardGame.value */ 
+                    /* Change valu här om du vill ha mindre kort for hard */
             }
             subjectValue.value = ''
             warningMessage.style.display = 'none';
@@ -36,8 +41,10 @@ let choseLevelAndSubject = new Promise(function (resolve) {
 
 async function startTheGame() {
     await choseLevelAndSubject;
-    topSection.style.display= 'none';
-    secondSection.style.display= 'block';
+    topSection.style.visibility = "hidden";
+    topSection.style.Width = "0";
+    topSection.style.height = "0";
+    secondSection.style.visibility = "visible";
 }
 
 
@@ -214,8 +221,11 @@ let comparecartFunctoin = function () {
                     /* Vi kollar om  compareArray har två olika kort med olika url så vänder vi kort igen om 1000s */
                     if (compareArray.length == 2) {
                         console.log('dont Same')
+
                         setTimeout(
                             function () {
+                                subtractScore();
+
                                 imgElement[tempCompare[0]].src = "/img/memorycard.png"
                                 imgElement[tempCompare[1]].src = "/img/memorycard.png"
                                 tempCompare = [];
@@ -237,6 +247,8 @@ let comparecartFunctoin = function () {
                     compareArray.push(ArrayforAllImg[i]);
                     console.log('The same')
                     imgElement[i].src = ArrayforAllImg[i];
+                    AddScore();
+                    allMatched();
                     removeLestn();
                     function removeLestn() {
                         setTimeout(
@@ -272,7 +284,54 @@ bildCard()
 
 
 
+let score = 0;
+let checkFinish = 0;
+let ScoreBord = document.querySelector('.pairs-title');
+
+function AddScore() {
+    score +=5;
+    checkFinish++;
+    console.log(score);
+    console.log(checkFinish);
+
+    ScoreBord.textContent = 'Score : ' + score;
+
+}
 
 
+function subtractScore() {
+    score -=1;
+    console.log(score);
+    console.log(checkFinish);
+    ScoreBord.textContent = 'Score : ' + score;
 
+}
+// All cards matched 
+function allMatched() {
+    if (checkFinish === ArrayforAllImg.length / 2) {
+        let scoreMessage = document.querySelector('.score-message');
+        scoreMessage.textContent = 'You finished the game and your score is : ' + score;
+        console.log(scoreMessage)
+        console.log(score)
+        popUp.style.visibility = "visible";
+        secondSection.style.height = "0";
+        secondSection.style.width = '0';
+ 
+    }
+}
 
+let resetBtn = document.querySelector('.restart-btn');
+resetBtn.addEventListener('click', function () {
+    location.reload();
+});
+
+// Play again button 
+playAgain.addEventListener('click', function () {
+    secondSection.style.visibility = 'hidden';
+    secondSection.style.height = "0";
+    secondSection.style.width = '0';
+    popUp.style.visibility = 'hidden';
+    popUp.style.height = "0";
+    popUp.style.width = '0';
+    location.reload();
+});

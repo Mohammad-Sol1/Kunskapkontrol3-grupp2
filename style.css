@@ -30,7 +30,7 @@ margin: 0 auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    display: flex;
+    visibility: visible;
 }
 
 h1{
@@ -62,7 +62,6 @@ h2{
     font-weight: 500;
     border: none;
     outline: none;
-    padding-left: 45px;
 }
 .submit-btn{
     margin-top: 10px;
@@ -96,15 +95,15 @@ h2{
     cursor: pointer;
 }
 .start-btn{
-    margin-top: 80px;
-    height: 50px;
-    width: 180px;
+    margin-top: 10px;
+    height: 100px;
+    width: 200px;
     border-radius: 25px;
     border: none;
     outline: none;
     text-transform: uppercase;
-    font-weight: 800;
-    font-size: 12px;
+    font-family: 'Bangers', cursive;
+    font-size: 30px;
     background-color: var(--red-color);
     color: white;
 
@@ -114,7 +113,8 @@ h2{
 .second-section {
 width: 100%;
 height: 100%;
-display: none;
+visibility: hidden;
+/* display: none; */
 }
 .score-container{
     display: flex;
@@ -148,7 +148,6 @@ display: none;
     /* background-color: blue; */
 
 }
-
 .card-content {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -185,7 +184,7 @@ display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    display: none;
+    visibility: hidden;
 }
 .overlay {
     opacity:0.5; 
@@ -233,7 +232,10 @@ display: none;
    
 }
 
+.img-element-fixat{
 
+color: rgba(50, 60n,70, alpha);
+}
 .first-section-form {
 
     text-align:  center;
