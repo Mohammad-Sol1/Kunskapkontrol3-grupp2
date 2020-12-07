@@ -30,7 +30,12 @@ margin: 0 auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+<<<<<<< Updated upstream
     display: none;
+=======
+    display:
+    
+>>>>>>> Stashed changes
 }
 
 h1{
