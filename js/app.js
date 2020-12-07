@@ -13,7 +13,6 @@ let popUp = document.querySelector('.third-section')
 let overlayImg = document.querySelector('.img-element');
 let playAgain = document.querySelector('.playagain-btn');
 
-let themeInput = document.querySelector('.input-value');
 
 
 // -------------------------------------
@@ -267,7 +266,14 @@ allMatched();
         }
     }
 }
-
+// GAME LOGICS 
+// Start the game 
+starrBtn.addEventListener('click', function(){
+    topSection.style.visibility = "hidden";
+    topSection.style.Width ="0";
+    topSection.style.height = "0";
+    secondSection.style.visibility = "visible";
+})
 // When match, add it to score
 function AddScore(){ 
     score++; 
@@ -280,8 +286,9 @@ function AddScore(){
 // All cards matched 
 function allMatched(){
 if (score === ArrayforAllImg.length/2){
-    secondSection.style.display = 'none';
-    popUp.style.display = 'inline-block';
+    popUp.style.visibility= "visible";
+    secondSection.style.height = "0";
+    secondSection.style.width= '0';
     
 }
 }
@@ -291,18 +298,19 @@ if (score === ArrayforAllImg.length/2){
     location.reload();
     });
 
-// Play again button
+// Play again button 
 playAgain.addEventListener('click', function(){
-    popUp.style.display = 'none';
-    topSection.style.display = 'block';
+secondSection.style.visibility = 'hidden';
+secondSection.style.height = "0";
+secondSection.style.width= '0';
+popUp.style.visibility = 'hidden';
+popUp.style.height = "0";
+popUp.style.width= '0';
+location.reload();
+
 });
 // Start the game again from Third section
-let startBtn = document.querySelector('.start-btn');
-startBtn.addEventListener('click', function(){
-    topSection.style.display = 'none';
-    location.reload();
-    secondSection.style.display ='block';
-})
+
 // Choose theme 
 
 
