@@ -11,6 +11,9 @@ let photContainer = document.querySelector('.container')
 
 let popUp = document.querySelector('.third-section')
 let overlayImg = document.querySelector('.img-element');
+let playAgain = document.querySelector('.playagain-btn');
+
+let themeInput = document.querySelector('.input-value');
 
 
 // -------------------------------------
@@ -38,7 +41,7 @@ let fetchLink = fetch(url).then((responsiv) => {
 
 let fetchData = fetchLink.then(function (data) {
 
-    for (let i = 0; i <= 498; i++) {/*  498 - 8 yes*/
+    for (let i = 0; i <= 8; i++) {/*  498 - 8 yes*/
         let photosData = function () {
             this.PhotoServer = data.photos.photo[i].server;
             this.PhotoId = data.photos.photo[i].id;
@@ -59,10 +62,10 @@ async function addPhotoTArray() {
     let photoHtml, theImageRa, randomNumber;
     let ramdomImageArray = []; /* Här ska vi samla 12 eller 24 unika bilder varja gång från data */
     let duplicateForImageArray = []
-    let kortantal = 12;/* 12 -4yes*/
+    let kortantal = 4;/* 12 -4yes*/
     await fetchLink;
-    while (ramdomImageArray.length < 12) {/* 12 -4yes */
-        randomNumber = Math.floor(Math.random() * 499);/* 499 - 8 yes*/
+    while (ramdomImageArray.length < 4) {/* 12 -4yes */
+        randomNumber = Math.floor(Math.random() * 8);/* 499 - 8 yes*/
         theImageRa = arrayPhoto[randomNumber];  /* Här hämtar vi en random bild av arrayPhoto som har 500 bilder */
         if (ramdomImageArray.indexOf(theImageRa) === -1) {
             ramdomImageArray.push(theImageRa);
@@ -126,7 +129,7 @@ let comparecartFunctoin = function () {
 
 
     function skapaImgElementiArray() {
-        for (let i = 0; i <= 23; i++) {/*  23 - 7 yes*/     /* för att skapa alla kort och lägger till dem samma PNG img */
+        for (let i = 0; i <= 7; i++) {/*  23 - 7 yes*/     /* för att skapa alla kort och lägger till dem samma PNG img */
             img = document.createElement('img'); /*  */
             img.src = "/img/memorycard.png"
             img.classList.add('img-element');
@@ -145,7 +148,7 @@ let comparecartFunctoin = function () {
     /* för att skapa addEventListener för varje kort */
 
     function skapaEvenetFörKort() {
-        for (let i = 0; i <= 23; i++) {   /* 7 yes */
+        for (let i = 0; i <= 7; i++) {   /* 7 yes */
             imgElement[i].addEventListener('click', matchakort)
             function matchakort() {
                 // if (id.indexOf(i+ArrayforAllImg[i] !== -1) { 
@@ -265,7 +268,7 @@ allMatched();
     }
 }
 
-
+// When match, add it to score
 function AddScore(){ 
     score++; 
    console.log(score); 
@@ -274,21 +277,12 @@ function AddScore(){
   ScoreBord.textContent= 'Score : '+ score; 
       
   }
-    /*                           
-   let RestartGame= document.querySelector('.restart-btn'); 
-   RestartGame.addEventListener('click' , function(){
-       console.log(RestartGame); 
-       if(score ===12){
-           alert(`Game Over: ${score}`); 
-       }
-
-   }); */
-
+// All cards matched 
 function allMatched(){
 if (score === ArrayforAllImg.length/2){
-    secondSection.style.visibility = 'hidden';
-    popUp.style.visibility = 'visible';
-    console.log(CompareArray);
+    secondSection.style.display = 'none';
+    popUp.style.display = 'inline-block';
+    
 }
 }
 // Restart-button on gameboard - refresh the page so the game starts over 
@@ -297,7 +291,22 @@ if (score === ArrayforAllImg.length/2){
     location.reload();
     });
 
-      
+// Play again button
+playAgain.addEventListener('click', function(){
+    popUp.style.display = 'none';
+    topSection.style.display = 'block';
+});
+// Start the game again from Third section
+let startBtn = document.querySelector('.start-btn');
+startBtn.addEventListener('click', function(){
+    topSection.style.display = 'none';
+    location.reload();
+    secondSection.style.display ='block';
+})
+// Choose theme 
+
+
+
     bildCard();
 
 
