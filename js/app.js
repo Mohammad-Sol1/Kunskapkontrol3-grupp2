@@ -2,12 +2,62 @@
 
 
 let bodyHtml = document.querySelector('body');
-let starrBtn = document.querySelector('.start-btn')
 let topSection = document.querySelector('.top-section')
 let secondSection = document.querySelector('.second-section')
 let cardContent = document.querySelector('.card-content')
 let winCardContent = document.querySelector('.win-card-content')
 let photContainer = document.querySelector('.container')
+let formFirstSide = document.querySelector(".first-section-form");
+let easyGame = document.getElementById('24K');
+let hardGame = document.getElementById('48K');
+let subjectValue = document.querySelector('.subject-value');
+let starrBtn = document.querySelector('.start-btn')
+
+
+choseLevelAndSubject()
+
+function choseLevelAndSubject() {
+    let GameLevel;
+    let Gamesubject;
+    starrBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        Gamesubject = (subjectValue.value).trim();
+
+
+        if (Gamesubject.length && (easyGame.checked ||hardGame.checked )) {
+            console.log('Vi har subjeckt and level ')
+
+            // ---------------------------------
+            if (easyGame.checked) {
+                GameLevel = easyGame.value;
+                console.log(GameLevel)
+            }
+            if (hardGame.checked) {
+                GameLevel = hardGame.value;
+                console.log(GameLevel)
+            }
+
+            // ---------------------------------
+                subjectValue.value = ''
+                console.log(Gamesubject)
+        
+        }
+
+
+
+
+
+    })
+
+
+
+
+
+
+}
+
+
 
 // -------------------------------------
 
