@@ -23,10 +23,22 @@ let unikIdforImg = [];
 
 // -------------------------------------
 
-let searchWord = 'cats';
+// let searchWord = 'cats';
+let searchWords = 'flowers';
+// let searchWord1='animals'
 let apiKey = '9588ff16cc05d4e98bcb23ab4b518b05'
-let url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${searchWord}&sort=relevance&safe_search=1&per_page=500&format=json&nojsoncallback=1
+let url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${searchWord-searchWords}&sort=relevance&safe_search=1&per_page=500&format=json&nojsoncallback=1
 `;
+
+
+
+
+// const urls = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${searchWords}&sort=relevance&safe_search=1&per_page=500&format=json&nojsoncallback=1
+// `;
+
+
+
+
 let arrayPhoto = [];
 
 // -------------------------------------
