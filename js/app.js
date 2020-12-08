@@ -308,41 +308,5 @@ async function startTheGame() {
 startTheGame()
 
 
-// / -------------------
-// Behövas göra idag: 
-/*  Att fixa utseende  och
-Anpassa det 36 kort istället 48
-/*  fel hantering Catch  */
-/*  fel meddeland */
-/*  skriva readme file */
-/*  skriva challange vi hade */
-/* skriva kommentarar på kod
- */
-// ----------------------------------------
-/*  skriva vilka område hade vi :: (( ett förslag ))
-/* Angilca : Disgn
-Tara : räkna pöang
-Tara och Angilca : fixade knapparna med deras fuctioner
-Mohammad : Hämtade data från api
-alla Tillsammans :skapade kort och matchade dem och resten av koden
- */
-// --------------------------------
-/* på mötet idag med William :
-Vi kan fråga om  hur kan vi använda mer prototyp i vår kod eller på den nya koden vi har ,
-vi kan fråga om import och export
- */
 
-
-/* console.log(responsiv);
-if(responsiv.status >= 200){
-    return responsiv.json(url);}  
-else if( responsive.status === 404) {
-throw responsiv.statusText;
-}
-    }).catch(function(error){
-        console.log(error);
-    })
-
-
-
- */
+ 
