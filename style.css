@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-  width: 940px;
+  width: 540px;
   height: 780px;
   margin: 0 auto;
 }
@@ -150,7 +150,7 @@ h2 {
 
 .card-content {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 4px;
    justify-items: center;
 }

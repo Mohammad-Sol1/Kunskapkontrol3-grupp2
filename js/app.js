@@ -24,7 +24,7 @@ let choseLevelAndSubject = new Promise(function (resolve) {
         Gamesubject = (subjectValue.value).trim();
         if (Gamesubject.length && (easyGame.checked || hardGame.checked)) {
             if (easyGame.checked) {
-                GameLevel = easyGame.value ; /* Original value  : easyGame.value */
+                GameLevel = 6 ; /* Original value  : easyGame.value */
                 /* Change value här om du vill ha mindre kort for easy */
             }
             if (hardGame.checked) {
