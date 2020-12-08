@@ -1,6 +1,6 @@
 # Kunskapkontrol3-grupp2
 
-This is a kind of Memory Card Game for single player.  We used  Filckr Api website for this game. This Game has different themes and different levels. Easy level which has 24 cards and the other level has 32 cards. 
+This is a kind of Memory Card Game for single player.  We used  Filckr Api website for this game. This Game has different themes and different levels. Easy level which has 16 cards and the other level has 32 cards. 
 
 Player have to write theme and choose the level before start the game.  
 
