@@ -22,7 +22,7 @@ let choseLevelAndSubject = new Promise(function (resolve) {
         Gamesubject = (subjectValue.value).trim();
         if (Gamesubject.length && (easyGame.checked || hardGame.checked)) {
             if (easyGame.checked) {
-                GameLevel = easyGame.value; /* Original value  : easyGame.value */ 
+                GameLevel = 6; /* Original value  : easyGame.value */ 
                 /* Change valu här om du vill ha mindre kort for easy */
             }
             if (hardGame.checked) {
@@ -206,7 +206,9 @@ let comparecartFunctoin = function () {
                 function mindraÄnTvåBilder() {
                     if (compareArray.length < 2) {
                         if (compareArray.indexOf(ArrayforAllImg[i]) === -1) {
+                            imgElement[i].classList.add('testflip')
                             imgElement[i].src = ArrayforAllImg[i];
+
                             tempCompare.push([i]);     /* För att hålla koll på vilket värde här (I) */
                             compareArray.push(ArrayforAllImg[i]); /* */
                             // imgElement[tempCompare[0][0]].removeEventListener('click', matchakort)
@@ -225,7 +227,8 @@ let comparecartFunctoin = function () {
                         setTimeout(
                             function () {
                                 subtractScore();
-
+                                imgElement[tempCompare[0]].classList.remove ('testflip');
+                                imgElement[tempCompare[1]].classList.remove ('testflip');
                                 imgElement[tempCompare[0]].src = "/img/memorycard.png"
                                 imgElement[tempCompare[1]].src = "/img/memorycard.png"
                                 tempCompare = [];
