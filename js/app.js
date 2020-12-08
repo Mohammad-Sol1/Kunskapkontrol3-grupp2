@@ -194,7 +194,10 @@ let comparecartFunctoin = function () {
 
                 function tvåOlikaBilder() {
                     /* Vi kollar om  compareArray har två olika kort med olika url så vänder vi kort igen om 2000s */
+                    bodyHtml.style.background = ' #1abc9c';
+
                     if (compareArray.length == 2) {
+
                         setTimeout(
                             function () {
                                 subtractScore();  /* för att subtract Score när det är olika kort*/
@@ -206,7 +209,6 @@ let comparecartFunctoin = function () {
                                 tempCompare = [];
                                 compareArray = [];
                                 tempCompareForUnik = []
-                                bodyHtml.style.background = ' #1abc9c';
 
                             }, 2000
                         );
@@ -239,7 +241,6 @@ let comparecartFunctoin = function () {
                                 imgElement[tempCompare[0][0]].remove();
                                 imgElement[tempCompare[1][0]].remove();
                                 /* Här behöver vi tomma array efter vi är klara med dem */
-                                bodyHtml.style.background = 'red'; 
                                 compareArray = [];
                                 tempCompare = [];
 
