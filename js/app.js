@@ -23,14 +23,14 @@ let choseLevelAndSubject = new Promise(function (resolve) {
         Gamesubject = (subjectValue.value).trim();
         if (Gamesubject.length && (easyGame.checked || hardGame.checked)) {
             if (easyGame.checked) {
-                GameLevel =  easyGame.value; /* Original value  : easyGame.value */
+                GameLevel = easyGame.value; /* Original value  : easyGame.value */
                 /* Change value här om du vill ha mindre kort for easy */
             }
             if (hardGame.checked) {
                 GameLevel = hardGame.value;  /* Original value  : hardGame.value */
                 /* Change value här om du vill ha mindre kort for hard */
-                cardContent.style.gridTemplateColumns = 'repeat(8, 1fr)' ;
-                container.style.width='1240px';
+                cardContent.style.gridTemplateColumns = 'repeat(8, 1fr)';
+                container.style.width = '1240px';
             }
             subjectValue.value = ''
             warningMessage.style.display = 'none';
@@ -45,13 +45,13 @@ let choseLevelAndSubject = new Promise(function (resolve) {
 let arrayPhoto = [];
 let bildUrlforApi = async function () {
     await choseLevelAndSubject;
-    console.log (1);
+    console.log(1);
     loading.style.display = 'block';
     console.log(loading);
     topSection.style.visibility = "hidden";
     topSection.style.Width = "0";
     topSection.style.height = "0";
-   
+
     secondSection.style.visibility = "visible";
     let searchWord = Gamesubject;
     let apiKey = '9588ff16cc05d4e98bcb23ab4b518b05'
@@ -75,7 +75,7 @@ let bildUrlforApi = async function () {
             let thePhoto = new photosData().photoLink;
             arrayPhoto.push(thePhoto);
         }
-    }).catch(error =>{
+    }).catch(error => {
         console.log('error', error)
     });
 }
@@ -88,11 +88,11 @@ let ArrayforAllImg = [];
 /*  Denna function för att blandar img så att bli bara två samma img på spelet som hamnar på ett random plats varje gång  */
 async function addPhotoTArray() {
     await bildUrlforApi();
-    console.log (2)
+    console.log(2)
 
     loading.style.display = 'none';
-    resetBtn.style.display='block';
-    scoreContainer.style.display='flex';
+    resetBtn.style.display = 'block';
+    scoreContainer.style.display = 'flex';
 
     let photoHtml, theImageRa, randomNumber;
     let ramdomImageArray = []; /* Här ska vi samla unika bilder varja gång från data (halften av kort antal) */
@@ -194,10 +194,9 @@ let comparecartFunctoin = function () {
 
                 function tvåOlikaBilder() {
                     /* Vi kollar om  compareArray har två olika kort med olika url så vänder vi kort igen om 2000s */
-                    bodyHtml.style.background = ' #1abc9c';
 
                     if (compareArray.length == 2) {
-
+                        bodyHtml.style.background = 'red';
                         setTimeout(
                             function () {
                                 subtractScore();  /* för att subtract Score när det är olika kort*/
@@ -208,8 +207,8 @@ let comparecartFunctoin = function () {
                                 /* Här behöver vi tomma array efter vi var klara med den */
                                 tempCompare = [];
                                 compareArray = [];
-                                tempCompareForUnik = []
-
+                                tempCompareForUnik = [];
+                                bodyHtml.style.background = '#1abc9c';
                             }, 2000
                         );
                     }
@@ -280,7 +279,7 @@ function allMatched() {
     }
 }
 
-  /* reset knappen  */
+/* reset knappen  */
 resetBtn.addEventListener('click', function () {
     location.reload();
 });
