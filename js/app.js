@@ -316,7 +316,6 @@ startTheGame()
 
 /*  fel hantering Catch  */
 
-/*  skriva readme file */
 /*  skriva challange vi hade */
 
  
