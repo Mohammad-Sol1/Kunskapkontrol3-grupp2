@@ -22,7 +22,7 @@ let choseLevelAndSubject = new Promise(function (resolve) {
         Gamesubject = (subjectValue.value).trim();
         if (Gamesubject.length && (easyGame.checked || hardGame.checked)) {
             if (easyGame.checked) {
-                GameLevel = 6; /* Original value  : easyGame.value */ 
+                GameLevel = easyGame.value; /* Original value  : easyGame.value */ 
                 /* Change valu här om du vill ha mindre kort for easy */
             }
             if (hardGame.checked) {
@@ -338,3 +338,38 @@ playAgain.addEventListener('click', function () {
     popUp.style.width = '0';
     location.reload();
 });
+
+
+
+
+
+// -------------------
+// Behövs göra 
+/*  Att fixa utseende  
+Anpassa med 48 kort
+/*  fel hantering Catch  */
+/*  fel meddeland  */
+/*  fel read me */
+/*  challabge vi hade */
+/* Fixa kommerntarat 
+ */
+
+// ----------------------------------------
+/*  vilka område hade vi  
+
+/* Angilca : Disgn
+Tara : räkna pöang
+Tara och angilca : fixade knapparna med fuctioner 
+Mohammad : Hämta data api
+alla Tillsammans : matchade kort and resten av koden
+
+ */
+// --------------------------------
+/* på mötet idag  : 
+
+Vi kan fråga om  hur kan vi använda mer prototyp i vår kod eller på den nya koden vi har , 
+
+vi kan fråga om import och export 
+
+ */
+
