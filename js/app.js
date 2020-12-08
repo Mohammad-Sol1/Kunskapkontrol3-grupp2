@@ -1,5 +1,6 @@
 
 let bodyHtml = document.querySelector('body');
+let container = document.querySelector('.container')
 let topSection = document.querySelector('.top-section')
 let secondSection = document.querySelector('.second-section')
 let cardContent = document.querySelector('.card-content')
@@ -19,12 +20,16 @@ let choseLevelAndSubject = new Promise(function (resolve) {
         Gamesubject = (subjectValue.value).trim();
         if (Gamesubject.length && (easyGame.checked || hardGame.checked)) {
             if (easyGame.checked) {
-                GameLevel =6; /* Original value  : easyGame.value */
+                GameLevel = easyGame.value ; /* Original value  : easyGame.value */
                 /* Change value här om du vill ha mindre kort for easy */
             }
             if (hardGame.checked) {
                 GameLevel = hardGame.value;  /* Original value  : hardGame.value */
                 /* Change value här om du vill ha mindre kort for hard */
+
+                cardContent.style.gridTemplateColumns = 'repeat(8, 1fr)' ;
+                container.style.width='1240px';
+
             }
             subjectValue.value = ''
             warningMessage.style.display = 'none';
@@ -294,14 +299,13 @@ startTheGame()
 
 // / -------------------
 // Behövas göra idag: 
-/*  Att fixa utseende  och
-Anpassa det 36 kort istället 48
+
 /*  fel hantering Catch  */
-/*  fel meddeland */
+
 /*  skriva readme file */
 /*  skriva challange vi hade */
-/* skriva kommentarar på kod
- */
+
+ 
 // ----------------------------------------
 /*  skriva vilka område hade vi :: (( ett förslag ))
 /* Angilca : Disgn
@@ -311,9 +315,6 @@ Mohammad : Hämtade data från api
 alla Tillsammans :skapade kort och matchade dem och resten av koden
  */
 // --------------------------------
-/* på mötet idag med William :
-Vi kan fråga om  hur kan vi använda mer prototyp i vår kod eller på den nya koden vi har ,
-vi kan fråga om import och export
- */
+
 
 
