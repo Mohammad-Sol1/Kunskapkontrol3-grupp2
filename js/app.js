@@ -343,33 +343,28 @@ playAgain.addEventListener('click', function () {
 
 
 
-// -------------------
-// Behövs göra 
-/*  Att fixa utseende  
-Anpassa med 48 kort
+// / -------------------
+// Behövas göra idag: 
+/*  Att fixa utseende  och
+Anpassa det 36 kort istället 48
 /*  fel hantering Catch  */
-/*  fel meddeland  */
-/*  fel read me */
-/*  challabge vi hade */
-/* Fixa kommerntarat 
+/*  fel meddeland */
+/*  skriva readme file */
+/*  skriva challabge vi hade */
+/* skriva kommentarar på kod
  */
-
 // ----------------------------------------
-/*  vilka område hade vi  
-
+/*  skriva vilka område hade vi :: (( ett förslag ))  
 /* Angilca : Disgn
 Tara : räkna pöang
-Tara och angilca : fixade knapparna med fuctioner 
-Mohammad : Hämta data api
-alla Tillsammans : matchade kort and resten av koden
-
+Tara och Angilca : fixade knapparna med deras fuctioner 
+Mohammad : Hämtade data från api
+alla Tillsammans :skapade kort och matchade dem och resten av koden
  */
 // --------------------------------
-/* på mötet idag  : 
-
+/* på mötet idag med William : 
 Vi kan fråga om  hur kan vi använda mer prototyp i vår kod eller på den nya koden vi har , 
-
 vi kan fråga om import och export 
-
  */
+
 
