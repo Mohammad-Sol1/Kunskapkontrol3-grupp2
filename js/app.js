@@ -174,20 +174,26 @@ let comparecartFunctoin = function () {
                 function tvåOlikaBilder() {
                     /* Vi kollar om  compareArray har två olika kort med olika url så vänder vi kort igen om 2000s */
                     if (compareArray.length == 2) {
+                        // Ändrar bakgrund till röd vid icke match
+                        bodyHtml.style.background = 'red';
                         setTimeout(
                             function () {
                                 subtractScore();  /* för att subtract Score när det är olika kort*/
                                 imgElement[tempCompare[0]].classList.remove('testflip');
                                 imgElement[tempCompare[1]].classList.remove('testflip');
+                                
+
                                 imgElement[tempCompare[0]].src = "/img/memorycard.png"
                                 imgElement[tempCompare[1]].src = "/img/memorycard.png"
                                 /* Här behöver vi tomma array efter vi var klara med den */
                                 tempCompare = [];  
                                 compareArray = [];
                                 tempCompareForUnik = []
-                                
+                                //Ändrar backgrunden till grön igen
+                                bodyHtml.style.background = ' #1abc9c';
                             }, 2000
                         );
+                       
                     }
                 }
                 function tvålikaBilder() {
