@@ -235,8 +235,6 @@ let comparecartFunctoin = function () {
                                 imgFixat2 = document.createElement('img');
                                 imgFixat1.src = imgElement[tempCompare[0]].src
                                 imgFixat2.src = imgElement[tempCompare[1]].src
-                                imgFixat1.classList.add('img-element-fixat');  
-                                imgFixat2.classList.add('img-element-fixat');
                                 cardContent.insertBefore(imgFixat1, cardContent.childNodes[(tempCompare[0][0]) + 1]);
                                 cardContent.insertBefore(imgFixat2, cardContent.childNodes[(tempCompare[1][0]) + 1]);
                                 imgElement[tempCompare[0][0]].remove();
