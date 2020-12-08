@@ -333,3 +333,16 @@ vi kan fråga om import och export
  */
 
 
+/* console.log(responsiv);
+if(responsiv.status >= 200){
+    return responsiv.json(url);}  
+else if( responsive.status === 404) {
+throw responsiv.statusText;
+}
+    }).catch(function(error){
+        console.log(error);
+    })
+
+
+
+ */
