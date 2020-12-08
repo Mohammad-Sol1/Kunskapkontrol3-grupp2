@@ -239,6 +239,7 @@ let comparecartFunctoin = function () {
                                 imgElement[tempCompare[0][0]].remove();
                                 imgElement[tempCompare[1][0]].remove();
                                 /* Här behöver vi tomma array efter vi är klara med dem */
+                                bodyHtml.style.background = 'red'; 
                                 compareArray = [];
                                 tempCompare = [];
 
