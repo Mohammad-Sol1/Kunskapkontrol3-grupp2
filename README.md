@@ -1,15 +1,26 @@
 # Kunskapkontrol3-grupp2
 
-This is a kind of Memory Card Game for single player.  We used  Filckr Api website for this game. This Game has different themes and different levels. Easy level which has 16 cards and the other level has 32 cards. 
+Group: Group 2 - Pink Kittens.  
+Group Members: Mohammad Soliman, Angelica Do, and Tara Hassani are member of this group.  
+--------------------------------------------------
+Responsibilities: 
+Mohammad has responsibility for API and gathering all information from the website and made a function in JavaScript.  
+Angelica has responsibility for Design and also cooperate with Tara for making connection between all pages, which every page gets connected to the other page by a button.  
+Tara has responsibility for score part. And also, cooperate with Angelica as mentioned above.   
+We did all the rest with each other. Such as all the card are similar or not similar.
+--------------------------------------------------
 
-Player have to write theme and choose the level before start the game.  
+Description : 
+To start the game, the player must:
+1. Write a theme for your memory game, example "dog", "car" or "cat". 
+2. Choose the level for your game. 
+3. Press "start game"
 
-If the player would not choose theme and level or if he would write a wrong message a warning message with the red color get appear on the page to remind him that to choose card subject and level.  
-
-The rule of this game is finding two cards which they are similar. Player can get one negative score when he has NOT chosen the correct card.  
-
-If player can find two similar card will get 5 score. Attention, any wrong choose has one negative score and it calculate form the total score.   
-
-Player has option to restart the game if he found it is a difficult game or for any other reasons.  
-
-When the player finds all the cards congratulation message with the total score getting appear and player can press the restart game to restart it. By pressing the restart game, the game will back to the very first page and player has chance to change a theme and level and continue to play.  
+When the game has loaded: 
+4. The player shall select two cards from the gameboard. 
+5. If the cards that appear is the same, the player will get 5 points added to "Score".
+6. If the player selects two cards that are not the same, the score will decrease with 1 point. 
+7. If the player wants to change theme or level. The player can choose to restart the game, by pressing the "Restart"-button. 
+8. The game continues to the player finds all matching pairs. 
+9. When all pairs are found, the player get their "Score".
+10. The player can choose to play the memory game again by pressing the "Play Again"-button.
