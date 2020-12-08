@@ -60,6 +60,9 @@ let bildUrlforApi = async function () {
     let fetchLink = fetch(url).then(function (responsiv) {
         return responsiv.json(url);
     });
+
+
+
     await fetchLink.then(function (data) {
         for (let i = 0; i <= 498; i++) {/*  498 - 24 yes!*/ /* vi kör med nummret 498 fär att vi vill att komma varja gång nya bilder för spelet */
             let photosData = function () {
@@ -72,6 +75,8 @@ let bildUrlforApi = async function () {
             let thePhoto = new photosData().photoLink;
             arrayPhoto.push(thePhoto);
         }
+    }).catch(error =>{
+        console.log('error', error)
     });
 }
 
