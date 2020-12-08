@@ -230,24 +230,24 @@ let comparecartFunctoin = function () {
 }
 
 
-let score = 0;
-let checkFinish = 0;
+let score = 0; 
+let checkFinish = 0; 
 let ScoreBord = document.querySelector('.pairs-title');
 
 function AddScore() {
-    score += 5;
-    checkFinish++;
+    score += 5;   /* vi lägger till 5 poäng när vi har matchade kort varje gång */
+    checkFinish++; /* vi lägger till 1  varje gång vi har två lika kort */
     ScoreBord.textContent = 'Score : ' + score;
 }
 
 
 function subtractScore() {
-    score -= 1;
+    score -= 1;  /* vi  subtract e poäng varje gång vi har olika kort */
     ScoreBord.textContent = 'Score : ' + score;
 }
 // All cards matched 
 function allMatched() {
-    if (checkFinish === ArrayforAllImg.length / 2) {
+    if (checkFinish === ArrayforAllImg.length / 2) {    /* on halften av antalet bilder i det array som har alla bilder är lika med checkFinishs värdet */
         let scoreMessage = document.querySelector('.score-message');
         scoreMessage.textContent = 'You finished the game and your score is : ' + score;
         popUp.style.visibility = "visible";
@@ -256,13 +256,13 @@ function allMatched() {
     }
 }
 
-let resetBtn = document.querySelector('.restart-btn');
+let resetBtn = document.querySelector('.restart-btn');   /* reset knappen  */
 resetBtn.addEventListener('click', function () {
     location.reload();
 });
 
 // Play again button 
-playAgain.addEventListener('click', function () {
+playAgain.addEventListener('click', function () {    /* Play again knappen  */
     secondSection.style.visibility = 'hidden';
     secondSection.style.height = "0";
     secondSection.style.width = '0';
@@ -274,11 +274,15 @@ playAgain.addEventListener('click', function () {
 
 
 
+
+/*  funktionen som stratr hela spelet */
+
 async function startTheGame() {
     await addPhotoTArray();
     await skapaIDFörimg();
     comparecartFunctoin();
 }
+
 startTheGame()
 
 
