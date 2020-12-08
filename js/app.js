@@ -15,7 +15,6 @@ let loading = document.querySelector('.loading');
 let resetBtn = document.querySelector('.restart-btn');
 let scoreContainer = document.querySelector('.score-container');
 
-console.log(loading)
 /*  Här för att hämta kort antal och ämnet på kort  */
 let Gamesubject, GameLevel;
 let choseLevelAndSubject = new Promise(function (resolve) {
@@ -24,16 +23,14 @@ let choseLevelAndSubject = new Promise(function (resolve) {
         Gamesubject = (subjectValue.value).trim();
         if (Gamesubject.length && (easyGame.checked || hardGame.checked)) {
             if (easyGame.checked) {
-                GameLevel = 6 ; /* Original value  : easyGame.value */
+                GameLevel =  easyGame.value; /* Original value  : easyGame.value */
                 /* Change value här om du vill ha mindre kort for easy */
             }
             if (hardGame.checked) {
                 GameLevel = hardGame.value;  /* Original value  : hardGame.value */
                 /* Change value här om du vill ha mindre kort for hard */
-
                 cardContent.style.gridTemplateColumns = 'repeat(8, 1fr)' ;
                 container.style.width='1240px';
-
             }
             subjectValue.value = ''
             warningMessage.style.display = 'none';
@@ -45,24 +42,24 @@ let choseLevelAndSubject = new Promise(function (resolve) {
 })
 
 /*  Här fitchar vi länken för flickr och skapa object for img länken */
-
 let arrayPhoto = [];
 let bildUrlforApi = async function () {
     await choseLevelAndSubject;
-    console.log (1)
+    console.log (1);
     loading.style.display = 'block';
-
+    console.log(loading);
     topSection.style.visibility = "hidden";
     topSection.style.Width = "0";
     topSection.style.height = "0";
+   
     secondSection.style.visibility = "visible";
     let searchWord = Gamesubject;
     let apiKey = '9588ff16cc05d4e98bcb23ab4b518b05'
-    let  url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${searchWord}&sort=relevance&safe_search=1&per_page=500&format=json&nojsoncallback=1
+    let url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${searchWord}&sort=relevance&safe_search=1&per_page=500&format=json&nojsoncallback=1
  `;
     let fetchLink = fetch(url).then(function (responsiv) {
         return responsiv.json(url);
-    });   
+    });
     await fetchLink.then(function (data) {
         for (let i = 0; i <= 498; i++) {/*  498 - 24 yes!*/ /* vi kör med nummret 498 fär att vi vill att komma varja gång nya bilder för spelet */
             let photosData = function () {
@@ -85,16 +82,16 @@ let ArrayforAllImg = [];
 
 /*  Denna function för att blandar img så att bli bara två samma img på spelet som hamnar på ett random plats varje gång  */
 async function addPhotoTArray() {
-
     await bildUrlforApi();
     console.log (2)
+
     loading.style.display = 'none';
     resetBtn.style.display='block';
     scoreContainer.style.display='flex';
 
     let photoHtml, theImageRa, randomNumber;
     let ramdomImageArray = []; /* Här ska vi samla unika bilder varja gång från data (halften av kort antal) */
-    let duplicateForImageArray = []
+    let duplicateForImageArray = [];
     let kortantal = (GameLevel / 2);
     while (ramdomImageArray.length < kortantal) {
         randomNumber = Math.floor(Math.random() * 499);/* 499 - för att få random nummer img också från de 498 img vi hämtade fr¨ån api*/
@@ -141,37 +138,37 @@ function skapaIDFörimg() {
 let comparecartFunctoin = function () {
 
     let compareArray = []; /* för att jämfor varje gång länken för de två img som vi öpnnar i spelet */
-    let img ;  
+    let img;
     let tempCompare = []; /* för att koden kommer ihåg vad hade vi för I nummer när vi öppnade kortet */
     let tempCompareForUnik = []; /* (vi behövde den för att jämfor om vi har en unik img, så spelaren får inte trycka på samma kort två gågner */
     skapaImgElementiArray()
     let imgElement = document.querySelectorAll('.img-element')
     skapaEvenetFörKort()
     // ------------------------------------
-     /* För att skapa och lägga till class och appendChild  */
+    /* För att skapa och lägga till class och appendChild  */
     function skapaImgElementiArray() {
         console.log(GameLevel)
-        for (let i = 0; i <= (GameLevel - 1); i++) {  
-            img = document.createElement('img'); 
+        for (let i = 0; i <= (GameLevel - 1); i++) {
+            img = document.createElement('img');
             img.src = "/img/memorycard.png"  /* för att lägger till PNG img för kort */
             img.classList.add('img-element');
             cardContent.appendChild(img);
 
         }
-        
+
     }
 
     /* för att skapa addEventListener för varje kort */
 
     function skapaEvenetFörKort() {
-        for (let i = 0; i <= (GameLevel - 1); i++) {   /*GameLevel lika med antalt kort vi har*/  
+        for (let i = 0; i <= (GameLevel - 1); i++) {   /*GameLevel lika med antalt kort vi har*/
             imgElement[i].addEventListener('click', matchakort)
             function matchakort() {
                 if (tempCompareForUnik.indexOf(unikIdforImg[i]) == -1) {   /* vi kollar om bilden är helt unik */
                     mindraÄnTvåBilder();
                     tempCompareForUnik.push(unikIdforImg[i])
                 }
-            
+
                 function mindraÄnTvåBilder() {
                     if (compareArray.length < 2) {      /*  Vi kollar om vi har mindra än två url (kort) i compareArray som är tomt */
                         if (compareArray.indexOf(ArrayforAllImg[i]) === -1) { /*  vi kollar om den url som vi fick först från ArrayforAllImg-(där har vi redan bilderna blandade)- inte finns redan i compareArray, */
@@ -193,26 +190,21 @@ let comparecartFunctoin = function () {
                 function tvåOlikaBilder() {
                     /* Vi kollar om  compareArray har två olika kort med olika url så vänder vi kort igen om 2000s */
                     if (compareArray.length == 2) {
-                        // Ändrar bakgrund till röd vid icke match
-                        bodyHtml.style.background = 'red';
                         setTimeout(
                             function () {
                                 subtractScore();  /* för att subtract Score när det är olika kort*/
                                 imgElement[tempCompare[0]].classList.remove('testflip');
                                 imgElement[tempCompare[1]].classList.remove('testflip');
-                                
-
                                 imgElement[tempCompare[0]].src = "/img/memorycard.png"
                                 imgElement[tempCompare[1]].src = "/img/memorycard.png"
                                 /* Här behöver vi tomma array efter vi var klara med den */
-                                tempCompare = [];  
+                                tempCompare = [];
                                 compareArray = [];
                                 tempCompareForUnik = []
-                                //Ändrar backgrunden till grön igen
                                 bodyHtml.style.background = ' #1abc9c';
+
                             }, 2000
                         );
-                       
                     }
                 }
                 function tvålikaBilder() {
@@ -223,7 +215,7 @@ let comparecartFunctoin = function () {
                     imgElement[i].src = ArrayforAllImg[i];
                     AddScore(); /* för att ha koll på score */
                     allMatched();/* för att ha koll om all kort slut */
-                    behandlaDeLikaKort(); 
+                    behandlaDeLikaKort();
                     function behandlaDeLikaKort() {
                         setTimeout(
                             function () {
@@ -235,14 +227,16 @@ let comparecartFunctoin = function () {
                                 imgFixat2 = document.createElement('img');
                                 imgFixat1.src = imgElement[tempCompare[0]].src
                                 imgFixat2.src = imgElement[tempCompare[1]].src
+                                imgFixat1.classList.add('img-element-fixat');
+                                imgFixat2.classList.add('img-element-fixat');
                                 cardContent.insertBefore(imgFixat1, cardContent.childNodes[(tempCompare[0][0]) + 1]);
                                 cardContent.insertBefore(imgFixat2, cardContent.childNodes[(tempCompare[1][0]) + 1]);
                                 imgElement[tempCompare[0][0]].remove();
                                 imgElement[tempCompare[1][0]].remove();
-                                 /* Här behöver vi tomma array efter vi är klara med dem */
-                                compareArray = [];   
+                                /* Här behöver vi tomma array efter vi är klara med dem */
+                                compareArray = [];
                                 tempCompare = [];
-                               
+
                             }, 1000
                         );
                     }
@@ -253,8 +247,8 @@ let comparecartFunctoin = function () {
 }
 
 
-let score = 0; 
-let checkFinish = 0; 
+let score = 0;
+let checkFinish = 0;
 let ScoreBord = document.querySelector('.pairs-title');
 
 function AddScore() {
@@ -279,7 +273,7 @@ function allMatched() {
     }
 }
 
-   /* reset knappen  */
+  /* reset knappen  */
 resetBtn.addEventListener('click', function () {
     location.reload();
 });
@@ -311,12 +305,14 @@ startTheGame()
 
 // / -------------------
 // Behövas göra idag: 
-
+/*  Att fixa utseende  och
+Anpassa det 36 kort istället 48
 /*  fel hantering Catch  */
-
+/*  fel meddeland */
+/*  skriva readme file */
 /*  skriva challange vi hade */
-
- 
+/* skriva kommentarar på kod
+ */
 // ----------------------------------------
 /*  skriva vilka område hade vi :: (( ett förslag ))
 /* Angilca : Disgn
@@ -326,6 +322,9 @@ Mohammad : Hämtade data från api
 alla Tillsammans :skapade kort och matchade dem och resten av koden
  */
 // --------------------------------
-
+/* på mötet idag med William :
+Vi kan fråga om  hur kan vi använda mer prototyp i vår kod eller på den nya koden vi har ,
+vi kan fråga om import och export
+ */
 
 
