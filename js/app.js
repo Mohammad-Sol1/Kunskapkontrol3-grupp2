@@ -13,6 +13,7 @@ let popUp = document.querySelector('.third-section')
 let playAgain = document.querySelector('.playagain-btn');
 let loading = document.querySelector('.loading');
 let resetBtn = document.querySelector('.restart-btn');
+let scoreContainer = document.querySelector('.score-container');
 
 console.log(loading)
 /*  Här för att hämta kort antal och ämnet på kort  */
@@ -89,6 +90,7 @@ async function addPhotoTArray() {
     console.log (2)
     loading.style.display = 'none';
     resetBtn.style.display='block';
+    scoreContainer.style.display='flex';
 
     let photoHtml, theImageRa, randomNumber;
     let ramdomImageArray = []; /* Här ska vi samla unika bilder varja gång från data (halften av kort antal) */
