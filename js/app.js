@@ -61,8 +61,20 @@ let bildUrlforApi = async function () {
     let  url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${searchWord}&sort=relevance&safe_search=1&per_page=500&format=json&nojsoncallback=1
  `;
     let fetchLink = fetch(url).then(function (responsiv) {
-        return responsiv.json(url);
-    });   
+console.log(responsiv);
+if(responsiv.status >= 200){
+    return responsiv.json(url);}  
+else if( responsive.status === 404) {
+throw responsiv.statusText;
+}
+    }).catch(function(error){
+        console.log(error);
+    })
+
+
+
+
+
     await fetchLink.then(function (data) {
         for (let i = 0; i <= 498; i++) {/*  498 - 24 yes!*/ /* vi kör med nummret 498 fär att vi vill att komma varja gång nya bilder för spelet */
             let photosData = function () {
@@ -75,6 +87,8 @@ let bildUrlforApi = async function () {
             let thePhoto = new photosData().photoLink;
             arrayPhoto.push(thePhoto);
         }
+    }).catch(error =>{
+        console.log('error', error)
     });
 }
 

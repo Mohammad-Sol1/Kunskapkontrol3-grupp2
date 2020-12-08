@@ -136,11 +136,7 @@ h2 {
   font-size: 12px;
   color:wheat;
   margin-top: 20px;
-<<<<<<< HEAD
  
-=======
-  background-color: white;
->>>>>>> 9e2e5e61a0506d5435932546c31d953b9ad413f6
 }
 
 .pairs-title {
@@ -174,8 +170,6 @@ h2 {
   transition: transform 0.7s;
   transform: rotateY(180deg);
 }
-
-
 
 .restart-btn {
   display: none;
