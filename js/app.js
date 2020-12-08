@@ -5,13 +5,16 @@ let topSection = document.querySelector('.top-section')
 let secondSection = document.querySelector('.second-section')
 let cardContent = document.querySelector('.card-content')
 let easyGame = document.getElementById('24K');
-let hardGame = document.getElementById('48K');
+let hardGame = document.getElementById('32K');
 let subjectValue = document.querySelector('.subject-value');
 let starrBtn = document.querySelector('.start-btn')
 let warningMessage = document.querySelector('.warning-message')
 let popUp = document.querySelector('.third-section')
 let playAgain = document.querySelector('.playagain-btn');
+let loading = document.querySelector('.loading');
+let resetBtn = document.querySelector('.restart-btn');
 
+console.log(loading)
 /*  Här för att hämta kort antal och ämnet på kort  */
 let Gamesubject, GameLevel;
 let choseLevelAndSubject = new Promise(function (resolve) {
@@ -41,9 +44,13 @@ let choseLevelAndSubject = new Promise(function (resolve) {
 })
 
 /*  Här fitchar vi länken för flickr och skapa object for img länken */
+
 let arrayPhoto = [];
 let bildUrlforApi = async function () {
     await choseLevelAndSubject;
+    console.log (1)
+    loading.style.display = 'block';
+
     topSection.style.visibility = "hidden";
     topSection.style.Width = "0";
     topSection.style.height = "0";
@@ -77,7 +84,12 @@ let ArrayforAllImg = [];
 
 /*  Denna function för att blandar img så att bli bara två samma img på spelet som hamnar på ett random plats varje gång  */
 async function addPhotoTArray() {
+
     await bildUrlforApi();
+    console.log (2)
+    loading.style.display = 'none';
+    resetBtn.style.display='block';
+
     let photoHtml, theImageRa, randomNumber;
     let ramdomImageArray = []; /* Här ska vi samla unika bilder varja gång från data (halften av kort antal) */
     let duplicateForImageArray = []
@@ -267,7 +279,7 @@ function allMatched() {
     }
 }
 
-let resetBtn = document.querySelector('.restart-btn');   /* reset knappen  */
+   /* reset knappen  */
 resetBtn.addEventListener('click', function () {
     location.reload();
 });
