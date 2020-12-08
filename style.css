@@ -13,7 +13,6 @@
   }
   
   .container {
-    /* background-color: #e73cc2; */
     width: 940px;
     height: 700px;
     margin: 0 auto;
@@ -30,16 +29,17 @@
   }
   
   h1 {
-    color: white;
+    color:rgb(210, 213, 48);
     font-size: 70px;
     text-transform: uppercase;
     margin-top: 25px;
     letter-spacing: 2px;
+    text-align: center;
   }
   h2 {
-    color: white;
-    margin-top: 60px;
-    font-size: 22px;
+    color:rgb(232, 156, 121);
+    margin-top: 40px;
+    font-size: 28px;
     text-align: center;
     text-transform: uppercase;
   }
@@ -52,11 +52,12 @@
     height: 40px;
     border-radius: 25px;
     padding: 12px;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight:500; 
     border: none;
     outline: none;
     text-align: center;
+    background-color: wheat;
   }
   .submit-btn {
     margin-top: 10px;
@@ -69,28 +70,36 @@
     font-weight: 800;
     font-size: 12px;
     background-color: var(--red-color);
-    color: white;
+    color:wheat;
   }
-  /* .submit-btn:hover{
-      cursor: pointer;
-  } */
+
   .lvl-btn {
     height: 40px;
     width: 60px;
     border-radius: 15px;
     border: none;
-    margin-top: 12px;
+    margin-top: 50px;
     margin-left: 10px;
     outline: none;
     border: none;
-    font-weight: 800;
-  }
+    font-weight: 600;
+    
+     }
+
+    
+     label{
+       color: rgb(232, 156, 121);
+       font-size: 35px;
+     }
+    
+
+
   .lvl-btn:hover {
     cursor: pointer;
   }
   .start-btn {
-    margin-top: 10px;
-    height: 100px;
+    margin-top: 40px;
+    height: 60px;
     width: 200px;
     border-radius: 25px;
     border: none;
@@ -99,7 +108,7 @@
     font-family: "Bangers", cursive;
     font-size: 30px;
     background-color: var(--red-color);
-    color: white;
+    color:wheat;
   }
   
   .second-section {
@@ -120,7 +129,7 @@
     border-radius: 25px;
     text-transform: uppercase;
     font-size: 12px;
-    background-color: white;
+    color:wheat;
     margin-top: 20px;
   }
   
@@ -133,19 +142,16 @@
   .card-container {
     width: 100%;
     height: auto;
-    /* display: grid; */
     margin-top: 30px;
-    /* background-color: blue; */
+    display: grid;
+  
   }
   
   .card-content {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 4px;
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* align-content: center; */
-    justify-items: center;
+     justify-items: center;
   }
   .card-content img {
     width: 150px;
@@ -172,7 +178,7 @@
     font-weight: 800;
     font-size: 12px;
     background-color: var(--red-color);
-    color: white;
+    color: wheat;
     margin-left: 85%;
   }
   .third-section {
@@ -226,7 +232,7 @@
     font-weight: 800;
     font-size: 12px;
     background-color: var(--red-color);
-    color: white;
+    color:rgb(232, 227, 220);
   }
   
   .first-section-form {
@@ -235,7 +241,14 @@
   
   .warning-message {
     display: none;
-    padding-top: 20px;
-    color: red;
+    padding-top: 30px;
+    font-size: 25px;
+    color: rgb(169, 15, 15);
   }
+
+
+
+
+
+
   
